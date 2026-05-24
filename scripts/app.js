@@ -390,17 +390,19 @@ function renderAllNews(data) {
         return;
     }
 
-    grid.innerHTML = data.news.map(item => {
+    // Store full news data for modal
+    window._newsData = data.news;
+
+    grid.innerHTML = data.news.map((item, idx) => {
         const cat = item.category || 'ai-news';
         const catInfo = CATEGORY_LABELS[cat] || { icon: '📰', name: 'أخبار' };
         const pubDate = item.published ? new Date(item.published).toLocaleDateString('ar-TN', {
             year: 'numeric', month: 'short', day: 'numeric'
         }) : 'اليوم';
         const summary = item.arabicSummary || generateArabicSummary(item);
-        const url = item.url || '#';
 
         return `
-            <div class="news-card ${cat}" data-category="${cat}">
+            <div class="news-card ${cat}" data-category="${cat}" data-index="${idx}">
                 <div class="card-top">
                     <span class="source-tag">${item.source || 'مصدر موثوق'}</span>
                     <span class="category-tag">${catInfo.icon} ${catInfo.name}</span>
@@ -409,14 +411,49 @@ function renderAllNews(data) {
                 <div class="news-summary">${escapeHtml(summary)}</div>
                 <div class="card-footer">
                     <span>📅 ${pubDate}</span>
-                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="read-link">
+                    <button class="read-link" onclick="openArticleModal(${idx})">
                         اقرأ المزيد ←
-                    </a>
+                    </button>
                 </div>
             </div>
         `;
     }).join('');
 }
+
+// ===== Article Modal (opens article INSIDE the site) =====
+function openArticleModal(index) {
+    const data = window._newsData;
+    if (!data || !data[index]) return;
+
+    const item = data[index];
+    const cat = item.category || 'ai-news';
+    const catInfo = CATEGORY_LABELS[cat] || { icon: '📰', name: 'أخبار' };
+    const pubDate = item.published ? new Date(item.published).toLocaleDateString('ar-TN', {
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+    }) : 'التاريخ غير متوفر';
+
+    const fullDesc = item.description || item.arabicSummary || 'المقال كامل متوفر على المصدر الأصلي.';
+
+    document.getElementById('modalCategory').textContent = `${catInfo.icon} ${catInfo.name}`;
+    document.getElementById('modalSource').textContent = item.source || 'مصدر موثوق';
+    document.getElementById('modalDate').textContent = `📅 ${pubDate}`;
+    document.getElementById('modalTitle').textContent = item.title;
+    document.getElementById('modalContent').textContent = fullDesc.replace(/<[^>]*>/g, '');
+    document.getElementById('modalSourceLink').href = item.url || '#';
+    document.getElementById('articleModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeArticleModal() {
+    document.getElementById('articleModal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close modal on overlay click
+document.addEventListener('DOMContentLoaded', function() {
+    // ... existing DOMContentLoaded code will handle this
+});
 
 function escapeHtml(text) {
     if (!text) return '';

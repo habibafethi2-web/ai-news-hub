@@ -283,6 +283,28 @@
 
     <button id="scrollToTop" class="scroll-to-top" title="العودة للأعلى">⬆️</button>
 
+    <!-- ===== Article Modal ===== -->
+    <div id="articleModal" class="modal-overlay" onclick="if(event.target===this) closeArticleModal()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-meta">
+                    <span id="modalCategory" class="modal-category">📰</span>
+                    <span id="modalSource" class="modal-source">مصدر</span>
+                    <span id="modalDate" class="modal-date"></span>
+                </div>
+                <button class="modal-close" onclick="closeArticleModal()">✕</button>
+            </div>
+            <h2 id="modalTitle" class="modal-title"></h2>
+            <div id="modalContent" class="modal-body"></div>
+            <div class="modal-footer">
+                <a id="modalSourceLink" href="#" target="_blank" rel="noopener noreferrer" class="modal-source-btn">
+                    🔗 المصدر الأصلي ←
+                </a>
+                <button onclick="closeArticleModal()" class="modal-close-btn">✕ إغلاق</button>
+            </div>
+        </div>
+    </div>
+
     <script src="scripts/app.js"></script>
 </body>
 </html>
