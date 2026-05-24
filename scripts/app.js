@@ -1,6 +1,28 @@
 // ===== AI News Hub - App Logic =====
 
-const API_KEY = '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';
+// ===== Sources Data =====
+const SOURCES = [
+    { icon: '🗞️', name: 'TechCrunch', desc: 'أخبار التقنية والشركات الناشئة' },
+    { icon: '📰', name: 'Reuters', desc: 'وكالة الأنباء العالمية' },
+    { icon: '🔄', name: 'Reddit', desc: 'مجتمعات r/vibecoding, r/artificial' },
+    { icon: '📱', name: 'Product Hunt', desc: 'أحدث المنتجات والأدوات' },
+    { icon: '📡', name: 'BBC News', desc: 'أخبار عالمية موثوقة' },
+    { icon: '🤖', name: 'المواقع الرسمية', desc: 'OpenAI, Google, Meta, Microsoft' },
+    { icon: '🎬', name: 'IMDb & Rotten Tomatoes', desc: 'أخبار الأفلام والمسلسلات' },
+    { icon: '📊', name: 'The Numbers', desc: 'إحصائيات شباك التذاكر' },
+    { icon: '📺', name: 'Variety', desc: 'أخبار الترفيه والسينما' },
+    { icon: '📝', name: 'The Verge', desc: 'أخبار التقنية اليومية' },
+    { icon: '📈', name: 'CNBC', desc: 'أخبار الأسواق والتقنية' },
+    { icon: '🌐', name: 'The Guardian', desc: 'أخبار دولية وتقنية' },
+    { icon: '💻', name: 'Computerworld', desc: 'أخبار عالم التقنية' },
+    { icon: '🔬', name: 'Stanford HAI', desc: 'أبحاث الذكاء الاصطناعي' },
+    { icon: '📘', name: 'Forbes', desc: 'أخبار المليارديرات والشركات' },
+    { icon: '📺', name: 'YouTube', desc: 'تحليلات فيديو من خبراء' },
+    { icon: '🎯', name: 'Product Hunt', desc: 'أحدث أدوات AI' },
+    { icon: '🧪', name: 'Google AI Blog', desc: 'آخر أبحاث Google' },
+    { icon: '🆕', name: 'OpenAI News', desc: 'أخبار OpenAI الرسمية' },
+    { icon: '📋', name: 'Medium', desc: 'مقالات تحليلية متعمقة' }
+];
 
 document.addEventListener('DOMContentLoaded', function() {
     // Set current date
@@ -9,21 +31,42 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('currentDate').textContent = now.toLocaleDateString('ar-TN', options);
     document.getElementById('year').textContent = now.getFullYear();
 
+    // Render sources
+    renderSources();
+
     // Load news
     loadNews();
 
-    // Smooth scroll for nav
+    // ===== Theme Toggle =====
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('ai-news-theme') || 'dark';
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        themeToggle.textContent = '☀️';
+    }
+
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        this.textContent = isLight ? '☀️' : '🌙';
+        localStorage.setItem('ai-news-theme', isLight ? 'light' : 'dark');
+    });
+
+    // ===== Smooth scroll for nav =====
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             this.classList.add('active');
             const target = this.getAttribute('href');
-            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+            const el = document.querySelector(target);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
-    // Active nav on scroll
+    // ===== Active nav on scroll =====
     window.addEventListener('scroll', function() {
         const sections = document.querySelectorAll('section[id]');
         const scrollPos = window.scrollY + 200;
@@ -37,8 +80,50 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+
+        // Scroll to top button
+        const scrollBtn = document.getElementById('scrollToTop');
+        if (window.scrollY > 400) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
     });
+
+    // ===== Scroll to top =====
+    document.getElementById('scrollToTop').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== Filter buttons =====
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            filterNews(filter);
+        });
+    });
+
+    // ===== Comments System =====
+    initComments();
 });
+
+function renderSources() {
+    const grid = document.getElementById('sourcesGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    SOURCES.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'source-card';
+        card.innerHTML = `
+            <span class="source-icon">${s.icon}</span>
+            <h4>${s.name}</h4>
+            <p>${s.desc}</p>
+        `;
+        grid.appendChild(card);
+    });
+}
 
 async function loadNews() {
     const loading = document.getElementById('loading');
@@ -63,8 +148,12 @@ async function loadNews() {
         }
 
         loading.style.display = 'none';
-        renderNews(newsData);
+        renderAllNews(newsData);
         updateStats(newsData);
+        updateBreakingNews(newsData);
+        document.getElementById('lastUpdate').textContent = newsData.updatedAt 
+            ? new Date(newsData.updatedAt).toLocaleString('ar-TN')
+            : new Date().toLocaleString('ar-TN');
 
     } catch (err) {
         console.error('Error loading news:', err);
@@ -107,11 +196,10 @@ async function fetchLiveNews() {
             const resp = await fetch('https://api.tavily.com/search', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${API_KEY}`
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    api_key: API_KEY,
+                    api_key: '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',
                     query: q.query,
                     search_depth: 'advanced',
                     max_results: 8,
@@ -131,7 +219,7 @@ async function fetchLiveNews() {
                         url: r.url,
                         source: r.source || 'مصدر موثوق',
                         category: q.category,
-                        section: q.section,
+                        section: q.section || 'allNewsGrid',
                         published: r.published_date || now
                     });
                 });
@@ -144,94 +232,154 @@ async function fetchLiveNews() {
     return { news: allNews, updatedAt: now };
 }
 
-function renderNews(data) {
-    const grids = {
-        aiNewsGrid: document.getElementById('aiNewsGrid'),
-        companiesGrid: document.getElementById('companiesGrid'),
-        peopleGrid: document.getElementById('peopleGrid'),
-        moviesGrid: document.getElementById('moviesGrid')
-    };
+function renderAllNews(data) {
+    const grid = document.getElementById('allNewsGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
 
-    // Clear grids
-    Object.values(grids).forEach(g => g.innerHTML = '');
+    if (!data.news || data.news.length === 0) {
+        grid.innerHTML = `<div class="news-card" style="grid-column: 1/-1; text-align:center; padding:40px;">
+            <p style="color:#8b949e;">لا توجد أخبار حالياً. سيتم التحديث قريباً.</p>
+        </div>`;
+        return;
+    }
 
-    // Group by section
-    const grouped = { aiNewsGrid: [], companiesGrid: [], peopleGrid: [], moviesGrid: [] };
-    
     data.news.forEach(item => {
-        if (grouped[item.section]) {
-            grouped[item.section].push(item);
-        } else {
-            // Fallback: put in aiNewsGrid
-            grouped.aiNewsGrid.push(item);
-        }
-    });
-
-    // Render each section
-    Object.keys(grouped).forEach(key => {
-        const grid = grids[key];
-        const items = grouped[key];
+        const card = document.createElement('div');
+        card.className = `news-card ${item.category || 'ai-news'}`;
+        card.dataset.category = item.category || 'ai-news';
         
-        if (items.length === 0) {
-            grid.innerHTML = `<div class="news-card" style="grid-column: 1/-1; text-align:center; padding:40px;">
-                <p style="color:#8b949e;">لا توجد أخبار حالياً في هذا القسم. سيتم التحديث قريباً.</p>
-            </div>`;
-            return;
-        }
+        const pubDate = item.published ? new Date(item.published).toLocaleDateString('ar-TN', {
+            year: 'numeric', month: 'short', day: 'numeric'
+        }) : 'اليوم';
 
-        items.forEach(item => {
-            const card = document.createElement('div');
-            card.className = `news-card ${item.category || 'ai-news'}`;
-            
-            const pubDate = item.published ? new Date(item.published).toLocaleDateString('ar-TN', {
-                year: 'numeric', month: 'short', day: 'numeric'
-            }) : 'اليوم';
-
-            card.innerHTML = `
-                <span class="source-tag">${item.source || 'مصدر موثوق'}</span>
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-                <div class="card-footer">
-                    <span>📅 ${pubDate}</span>
-                    <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="read-link">
-                        اقرأ المزيد ←
-                    </a>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
+        card.innerHTML = `
+            <span class="source-tag">${item.source || 'مصدر موثوق'}</span>
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+            <div class="card-footer">
+                <span>📅 ${pubDate}</span>
+                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="read-link">
+                    اقرأ المزيد ←
+                </a>
+            </div>
+        `;
+        grid.appendChild(card);
     });
+}
 
-    // Update last update time
-    const updateTime = data.updatedAt ? new Date(data.updatedAt).toLocaleString('ar-TN') : new Date().toLocaleString('ar-TN');
-    document.getElementById('lastUpdate').textContent = updateTime;
+function filterNews(filter) {
+    const cards = document.querySelectorAll('#allNewsGrid .news-card');
+    cards.forEach(card => {
+        if (filter === 'all') {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = card.dataset.category === filter ? 'flex' : 'none';
+        }
+    });
 }
 
 function updateStats(data) {
-    document.getElementById('newsCount').textContent = data.news ? data.news.length : 0;
+    const news = data.news || [];
+    const total = news.length;
+    const aiCount = news.filter(n => (n.category === 'ai-news' || n.section === 'aiNewsGrid')).length;
+    const companiesCount = news.filter(n => (n.category === 'companies' || n.section === 'companiesGrid')).length;
+    const peopleCount = news.filter(n => (n.category === 'people' || n.section === 'peopleGrid')).length;
+    const moviesCount = news.filter(n => (n.category === 'movies' || n.section === 'moviesGrid')).length;
+
+    document.getElementById('statTotal').textContent = total;
+    document.getElementById('statAi').textContent = aiCount;
+    document.getElementById('statCompanies').textContent = companiesCount;
+    document.getElementById('statPeople').textContent = peopleCount;
+    document.getElementById('statMovies').textContent = moviesCount;
+    document.getElementById('footerNewsCount').textContent = total;
 }
 
-// ===== Sources Data =====
-const sources = [
-    { icon: '🗞️', name: 'TechCrunch', desc: 'أخبار التقنية والشركات الناشئة' },
-    { icon: '📰', name: 'Reuters', desc: 'وكالة الأنباء العالمية' },
-    { icon: '🔄', name: 'Reddit', desc: 'مجتمعات r/vibecoding, r/artificial' },
-    { icon: '📱', name: 'Product Hunt', desc: 'أحدث المنتجات والأدوات' },
-    { icon: '🤖', name: 'المواقع الرسمية', desc: 'OpenAI, Google, Meta, Microsoft' },
-    { icon: '🎬', name: 'IMDb & Rotten Tomatoes', desc: 'أخبار الأفلام والمسلسلات' }
-];
+function updateBreakingNews(data) {
+    const ticker = document.getElementById('breakingText');
+    if (!ticker || !data.news || data.news.length === 0) return;
 
-// Render sources
-const sourcesGrid = document.getElementById('sourcesGrid');
-if (sourcesGrid) {
-    sources.forEach(s => {
-        const card = document.createElement('div');
-        card.className = 'source-card';
-        card.innerHTML = `
-            <span class="source-icon">${s.icon}</span>
-            <h4>${s.name}</h4>
-            <p>${s.desc}</p>
-        `;
-        sourcesGrid.appendChild(card);
+    // Get top 8 headlines for the ticker
+    const topHeadlines = data.news.slice(0, 8);
+    const tickerText = topHeadlines.map((n, i) => 
+        `🔹 ${n.title.replace(/<[^>]*>/g, '')}`
+    ).join(' &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ');
+
+    ticker.innerHTML = tickerText;
+}
+
+// ===== Comments System =====
+function initComments() {
+    const submitBtn = document.getElementById('submitComment');
+    const nameInput = document.getElementById('commentName');
+    const textInput = document.getElementById('commentText');
+    const charCount = document.getElementById('charCount');
+    const commentsList = document.getElementById('commentsList');
+
+    // Character counter
+    textInput.addEventListener('input', function() {
+        charCount.textContent = this.value.length;
     });
+
+    // Load saved comments
+    renderComments();
+
+    // Submit comment
+    submitBtn.addEventListener('click', function() {
+        const name = nameInput.value.trim() || 'زائر';
+        const text = textInput.value.trim();
+
+        if (!text) {
+            alert('الرجاء كتابة تعليق قبل الإرسال');
+            return;
+        }
+
+        if (text.length > 500) {
+            alert('التعليق طويل جداً (الحد الأقصى 500 حرف)');
+            return;
+        }
+
+        const comment = {
+            id: Date.now(),
+            name: name,
+            text: text,
+            time: new Date().toISOString()
+        };
+
+        // Save to localStorage
+        const comments = JSON.parse(localStorage.getItem('ai-news-comments') || '[]');
+        comments.unshift(comment);
+        localStorage.setItem('ai-news-comments', JSON.stringify(comments));
+
+        // Clear form
+        nameInput.value = '';
+        textInput.value = '';
+        charCount.textContent = '0';
+
+        // Re-render
+        renderComments();
+    });
+}
+
+function renderComments() {
+    const container = document.getElementById('commentsList');
+    const comments = JSON.parse(localStorage.getItem('ai-news-comments') || '[]');
+
+    if (comments.length === 0) {
+        container.innerHTML = '<p class="no-comments">لا توجد تعليقات بعد. كن أول من يعلق!</p>';
+        return;
+    }
+
+    container.innerHTML = comments.map(c => {
+        const time = new Date(c.time).toLocaleString('ar-TN');
+        return `
+            <div class="comment-item">
+                <div class="comment-author">
+                    💬 ${c.name}
+                    <span class="comment-time">${time}</span>
+                </div>
+                <div class="comment-text">${c.text}</div>
+            </div>
+        `;
+    }).join('');
 }

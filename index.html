@@ -13,6 +13,16 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
 </head>
 <body>
+    <!-- ===== Breaking News Bar ===== -->
+    <div class="breaking-news-bar">
+        <div class="container breaking-news-container">
+            <span class="breaking-label">🚨 عاجل</span>
+            <div class="breaking-news-ticker" id="breakingTicker">
+                <span id="breakingText">جاري تحميل آخر الأخبار العاجلة...</span>
+            </div>
+        </div>
+    </div>
+
     <header class="header">
         <div class="container">
             <div class="header-top">
@@ -20,15 +30,19 @@
                     <span class="logo-icon">🤖</span>
                     <h1>AI News Hub</h1>
                 </div>
-                <div class="date-badge">
-                    <span id="currentDate"></span>
+                <div class="header-controls">
+                    <div class="date-badge">
+                        <span id="currentDate"></span>
+                    </div>
+                    <button id="themeToggle" class="theme-toggle" title="تبديل الوضع">🌙</button>
                 </div>
             </div>
             <nav class="nav">
                 <a href="#ai-news" class="nav-link active">🧠 أخبار AI</a>
-                <a href="#companies" class="nav-link">🏢 أخبار الشركات</a>
+                <a href="#companies" class="nav-link">🏢 الشركات</a>
                 <a href="#people" class="nav-link">👤 الشخصيات</a>
                 <a href="#movies" class="nav-link">🎬 الأفلام</a>
+                <a href="#about" class="nav-link">ℹ️ عن الموقع</a>
             </nav>
             <div class="last-update-bar">
                 <span>🔄 آخر تحديث: </span>
@@ -43,44 +57,148 @@
             <p>جاري تحميل آخر الأخبار...</p>
         </div>
 
+        <!-- ===== قسم أخبار AI ===== -->
         <section id="ai-news" class="section">
             <div class="section-header">
                 <h2>🧠 أخبار الذكاء الاصطناعي</h2>
                 <span class="badge">أحدث الأخبار</span>
             </div>
-            <div class="news-grid" id="aiNewsGrid"></div>
-        </section>
-
-        <section id="companies" class="section">
-            <div class="section-header">
-                <h2>🏢 أخبار شركات AI</h2>
-                <span class="badge">OpenAI · Google · Meta · Microsoft</span>
+            <div class="section-filter">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="ai-news">AI</button>
+                <button class="filter-btn" data-filter="companies">شركات</button>
+                <button class="filter-btn" data-filter="people">شخصيات</button>
+                <button class="filter-btn" data-filter="movies">أفلام</button>
             </div>
-            <div class="news-grid" id="companiesGrid"></div>
+            <div class="news-grid" id="allNewsGrid"></div>
         </section>
 
-        <section id="people" class="section">
-            <div class="section-header">
-                <h2>👤 أخبار الشخصيات المشهورة</h2>
-                <span class="badge">مشاهير · تقنية · سياسة · رياضة</span>
-            </div>
-            <div class="news-grid" id="peopleGrid"></div>
-        </section>
-
-        <section id="movies" class="section">
-            <div class="section-header">
-                <h2>🎬 أخبار الأفلام والترفيه</h2>
-                <span class="badge">أفلام · مسلسلات · نجوم</span>
-            </div>
-            <div class="news-grid" id="moviesGrid"></div>
-        </section>
-
+        <!-- ===== قسم المصادر ===== -->
         <section class="section sources-section">
             <div class="section-header">
                 <h2>📡 المصادر المعتمدة</h2>
                 <span class="badge">دقة 100%</span>
             </div>
+            <p class="section-subtitle">نعتمد على أكثر من 20 مصدراً موثوقاً لضمان دقة الأخبار</p>
             <div class="sources-grid" id="sourcesGrid"></div>
+        </section>
+
+        <!-- ===== قسم الإحصائيات ===== -->
+        <section class="section stats-section">
+            <div class="section-header">
+                <h2>📊 إحصائيات اليوم</h2>
+                <span class="badge">آخر 24 ساعة</span>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-icon">📰</span>
+                    <span class="stat-number" id="statTotal">0</span>
+                    <span class="stat-desc">مجموع الأخبار</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🧠</span>
+                    <span class="stat-number" id="statAi">0</span>
+                    <span class="stat-desc">أخبار AI</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🏢</span>
+                    <span class="stat-number" id="statCompanies">0</span>
+                    <span class="stat-desc">أخبار شركات</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">👤</span>
+                    <span class="stat-number" id="statPeople">0</span>
+                    <span class="stat-desc">أخبار شخصيات</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🎬</span>
+                    <span class="stat-number" id="statMovies">0</span>
+                    <span class="stat-desc">أخبار أفلام</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== قسم عن الموقع ===== -->
+        <section id="about" class="section about-section">
+            <div class="section-header">
+                <h2>ℹ️ عن AI News Hub</h2>
+                <span class="badge">منصتك الإخبارية</span>
+            </div>
+            <div class="about-content">
+                <div class="about-card mission">
+                    <h3>🎯 رسالتنا</h3>
+                    <p>تقديم أخبار دقيقة 100% عن الذكاء الاصطناعي، الشركات التقنية، الشخصيات المشهورة، والأفلام — كل يوم، من مصادر موثوقة، بلغة عربية واضحة.</p>
+                </div>
+                <div class="about-card how-it-works">
+                    <h3>⚙️ كيف يعمل؟</h3>
+                    <ul>
+                        <li>🤖 <strong>بحث آلي</strong> — نستخدم Tavily API للبحث في 20+ مصدراً يومياً</li>
+                        <li>✅ <strong>تحقق من الدقة</strong> — كل خبر يُجلب من مصادر موثوقة (Reuters, TechCrunch, BBC, CNBC...)</li>
+                        <li>🔄 <strong>تحديث تلقائي</strong> — الأخبار تتجدد مرتين يومياً (06:00 و 12:00 UTC)</li>
+                        <li>🔗 <strong>روابط مباشرة</strong> — كل خبر يحوي رابطاً للمصدر الأصلي للتحقق</li>
+                    </ul>
+                </div>
+                <div class="about-card features">
+                    <h3>🌟 المميزات</h3>
+                    <ul>
+                        <li>📰 تغطية 4 أقسام: AI، شركات، شخصيات، أفلام</li>
+                        <li>📊 إحصائيات حية لعدد الأخبار</li>
+                        <li>🔍 فلترة الأخبار حسب القسم</li>
+                        <li>🌙 وضع ليلي/نهاري</li>
+                        <li>🚨 شريط أخبار عاجلة</li>
+                        <li>📱 تصميم متجاوب مع كل الأجهزة</li>
+                        <li>🔗 روابط للمصادر الأصلية</li>
+                    </ul>
+                </div>
+                <div class="about-card accuracy">
+                    <h3>✅ التزامنا بالدقة</h3>
+                    <p>نحن نلتزم بتقديم أخبار دقيقة بنسبة <strong>100%</strong>. كل خبر في الموقع:</p>
+                    <ul>
+                        <li>✓ مصدره موقع إخباري معروف وموثوق</li>
+                        <li>✓ يحوي رابطاً للمقال الأصلي</li>
+                        <li>✓ يتم تحديثه يومياً ليعكس آخر المستجدات</li>
+                        <li>✓ يتم فلترة المحتوى الترويجي والمضلل</li>
+                    </ul>
+                </div>
+                <div class="about-card tech-stack">
+                    <h3>🛠️ التقنيات المستخدمة</h3>
+                    <div class="tech-badges">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Tavily API</span>
+                        <span class="tech-badge">GitHub Actions</span>
+                        <span class="tech-badge">GitHub Pages</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== قسم التعليقات ===== -->
+        <section class="section comments-section" id="comments">
+            <div class="section-header">
+                <h2>💬 شاركنا رأيك</h2>
+                <span class="badge">التعليقات</span>
+            </div>
+            <div class="comments-container">
+                <div class="comment-form-card">
+                    <h3>أضف تعليقاً</h3>
+                    <div class="comment-form">
+                        <input type="text" id="commentName" placeholder="اسمك (اختياري)" class="comment-input" maxlength="50">
+                        <textarea id="commentText" placeholder="اكتب تعليقك هنا..." class="comment-textarea" maxlength="500"></textarea>
+                        <div class="comment-form-footer">
+                            <span class="char-count"><span id="charCount">0</span>/500</span>
+                            <button id="submitComment" class="comment-btn">💬 أرسل تعليق</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="comments-list-card">
+                    <h3>آخر التعليقات</h3>
+                    <div id="commentsList" class="comments-list">
+                        <p class="no-comments">لا توجد تعليقات بعد. كن أول من يعلق!</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <div id="error" class="error-section hidden">
@@ -98,22 +216,37 @@
                     <p>منصتك اليومية لأخبار الذكاء الاصطناعي، المشاهير، والأفلام</p>
                     <p class="footer-motto">📢 أخبار دقيقة 100% — نتحرى الدقة قبل النشر</p>
                 </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <a href="#ai-news">🧠 أخبار AI</a>
+                    <a href="#companies">🏢 الشركات</a>
+                    <a href="#people">👤 الشخصيات</a>
+                    <a href="#movies">🎬 الأفلام</a>
+                    <a href="#about">ℹ️ عن الموقع</a>
+                    <a href="#comments">💬 التعليقات</a>
+                </div>
                 <div class="footer-stats">
                     <div class="stat">
-                        <span class="stat-num" id="newsCount">0</span>
+                        <span class="stat-num" id="footerNewsCount">0</span>
                         <span class="stat-label">خبر اليوم</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-num" id="sourcesCount">6</span>
+                        <span class="stat-num">20+</span>
                         <span class="stat-label">مصدر</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-label">دقة</span>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© <span id="year"></span> AI News Hub | يتم التحديث يومياً تلقائياً</p>
+                <p>© <span id="year"></span> AI News Hub | يتم التحديث يومياً تلقائياً | جميع الأخبار لها مصادرها الأصلية</p>
             </div>
         </div>
     </footer>
+
+    <button id="scrollToTop" class="scroll-to-top" title="العودة للأعلى">⬆️</button>
 
     <script src="scripts/app.js"></script>
 </body>
