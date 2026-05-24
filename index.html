@@ -2,28 +2,29 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News Hub — أخبار الذكاء الاصطناعي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI News Hub — أخبار الذكاء الاصطناعي اليوم</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <meta name="description" content="منصتك اليومية لأخبار الذكاء الاصطناعي، الشخصيات المشهورة، والأفلام — بدقة 100%">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="منصتك اليومية لأخبار الذكاء الاصطناعي بالعربية — أخبار دقيقة 100% من مصادر موثوقة مع رسوم بيانية وتلخيص ذكي">
     <meta property="og:title" content="AI News Hub">
-    <meta property="og:description" content="أخبار AI يومياً من مصادر موثوقة">
+    <meta property="og:description" content="أخبار AI، شركات، شخصيات، وأفلام — يومياً بالعربية">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
 </head>
 <body>
-    <!-- ===== Breaking News Bar ===== -->
+    <!-- ===== Breaking News ===== -->
     <div class="breaking-news-bar">
         <div class="container breaking-news-container">
             <span class="breaking-label">🚨 عاجل</span>
-            <div class="breaking-news-ticker" id="breakingTicker">
-                <span class="breaking-news-ticker-content" id="breakingText">جاري تحميل آخر الأخبار العاجلة...</span>
+            <div class="breaking-news-ticker">
+                <span id="breakingText">جاري تحميل آخر الأخبار العاجلة...</span>
             </div>
         </div>
     </div>
 
-    <header class="header">
+    <!-- ===== Header ===== -->
+    <header class="header" id="header">
         <div class="container">
             <div class="header-top">
                 <div class="logo">
@@ -31,39 +32,45 @@
                     <h1>AI News Hub</h1>
                 </div>
                 <div class="header-controls">
-                    <div class="date-badge">
-                        <span id="currentDate"></span>
-                    </div>
-                    <button id="themeToggle" class="theme-toggle" title="تبديل الوضع">🌙</button>
+                    <div class="date-badge" id="currentDate"></div>
+                    <button id="themeToggle" class="theme-btn" title="تبديل الوضع">🌙</button>
                 </div>
             </div>
-            <nav class="nav">
-                <a href="#ai-news" class="nav-link active" data-section="ai-news">🧠 أخبار AI</a>
-                <a href="#companies" class="nav-link" data-section="companies">🏢 الشركات</a>
-                <a href="#people" class="nav-link" data-section="people">👤 الشخصيات</a>
-                <a href="#movies" class="nav-link" data-section="movies">🎬 الأفلام</a>
-                <a href="#about" class="nav-link" data-section="about">ℹ️ عن الموقع</a>
+            <nav class="nav" id="mainNav">
+                <a class="nav-link active" data-section="all">📰 الكل</a>
+                <a class="nav-link" data-section="ai-news">🧠 AI</a>
+                <a class="nav-link" data-section="companies">🏢 شركات</a>
+                <a class="nav-link" data-section="people">👤 شخصيات</a>
+                <a class="nav-link" data-section="movies">🎬 أفلام</a>
+                <a class="nav-link" data-section="charts">📊 إحصائيات</a>
+                <a class="nav-link" data-section="about">ℹ️ عن الموقع</a>
             </nav>
             <div class="last-update-bar">
-                <span>🔄 آخر تحديث: </span>
-                <span id="lastUpdate">جاري التحميل...</span>
+                <span>🔄 آخر تحديث: </span><span id="lastUpdate">جاري التحميل...</span>
+                <span style="margin:0 10px">|</span>
+                <span id="liveCount">0 خبراً</span>
             </div>
         </div>
     </header>
 
     <main class="container">
         <div id="loading" class="loading-section">
-            <div class="spinner"></div>
+            <div class="loading-spinner"></div>
             <p>جاري تحميل آخر الأخبار...</p>
         </div>
+        <div id="error" class="error-section hidden">
+            <span class="error-icon">⚠️</span>
+            <p id="errorMessage">حدث خطأ أثناء تحميل الأخبار.</p>
+            <button onclick="location.reload()" class="retry-btn">إعادة المحاولة</button>
+        </div>
 
-        <!-- ===== قسم أخبار AI مع فلترة ===== -->
-        <section id="ai-news" class="section">
+        <!-- ===== FILTER BUTTONS ===== -->
+        <section class="section" id="newsSection">
             <div class="section-header">
-                <h2>📰 جميع الأخبار</h2>
-                <span class="badge" id="totalBadge">97 خبراً</span>
+                <h2 id="newsSectionTitle">📰 جميع الأخبار</h2>
+                <span class="badge" id="totalBadge"></span>
             </div>
-            <div class="section-filter">
+            <div class="section-filter" id="filterBar">
                 <button class="filter-btn active" data-filter="all">الكل</button>
                 <button class="filter-btn" data-filter="ai-news">🧠 AI</button>
                 <button class="filter-btn" data-filter="companies">🏢 شركات</button>
@@ -73,17 +80,7 @@
             <div class="news-grid" id="allNewsGrid"></div>
         </section>
 
-        <!-- ===== قسم المصادر ===== -->
-        <section class="section sources-section">
-            <div class="section-header">
-                <h2>📡 المصادر المعتمدة</h2>
-                <span class="badge">دقة 100%</span>
-            </div>
-            <p class="section-subtitle">نعتمد على أكثر من 20 مصدراً موثوقاً لضمان دقة الأخبار</p>
-            <div class="sources-grid" id="sourcesGrid"></div>
-        </section>
-
-        <!-- ===== قسم الإحصائيات ===== -->
+        <!-- ===== STATS ===== -->
         <section class="section stats-section">
             <div class="section-header">
                 <h2>📊 إحصائيات اليوم</h2>
@@ -118,50 +115,86 @@
             </div>
         </section>
 
-        <!-- ===== قسم عن الموقع ===== -->
-        <section id="about" class="section about-section">
+        <!-- ===== CHARTS ===== -->
+        <section class="charts-section" id="charts">
+            <div class="section-header">
+                <h2>📊 تحليل بياني للأخبار</h2>
+                <span class="badge">إحصائيات اليوم</span>
+            </div>
+            <p class="section-subtitle" style="color:var(--text3);margin-bottom:20px;font-size:0.9rem;">توزيع الأخبار حسب الأقسام — بيان تفاعلي</p>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>📊 توزيع الأخبار حسب القسم</h3>
+                    <div class="chart-bars" id="barChart"></div>
+                </div>
+                <div class="chart-card">
+                    <h3>🍩 النسبة المئوية</h3>
+                    <div class="chart-donut-container">
+                        <div class="donut-chart" id="donutChart">
+                            <div class="donut-center">
+                                <span class="big-num" id="donutTotal">0</span>
+                                <span class="small-label">خبراً</span>
+                            </div>
+                        </div>
+                        <div class="donut-legend" id="donutLegend"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SOURCES ===== -->
+        <section class="section">
+            <div class="section-header">
+                <h2>📡 مصادرنا الموثوقة</h2>
+                <span class="badge">دقة 100%</span>
+            </div>
+            <div class="sources-grid" id="sourcesGrid"></div>
+        </section>
+
+        <!-- ===== ABOUT ===== -->
+        <section class="section about-section" id="about">
             <div class="section-header">
                 <h2>ℹ️ عن AI News Hub</h2>
                 <span class="badge">منصتك الإخبارية</span>
             </div>
             <div class="about-content">
-                <div class="about-card mission">
+                <div class="about-card">
                     <h3>🎯 رسالتنا</h3>
-                    <p>تقديم أخبار دقيقة 100% عن الذكاء الاصطناعي، الشركات التقنية، الشخصيات المشهورة، والأفلام — كل يوم، من مصادر موثوقة، بلغة عربية واضحة.</p>
+                    <p>تقديم أخبار دقيقة 100% عن الذكاء الاصطناعي، الشركات التقنية، الشخصيات المشهورة، والأفلام — كل يوم، من مصادر موثوقة، بلغة عربية واضحة مع تلخيص ذكي ورسوم بيانية.</p>
                 </div>
-                <div class="about-card how-it-works">
+                <div class="about-card">
                     <h3>⚙️ كيف يعمل؟</h3>
                     <ul>
                         <li>🤖 <strong>بحث آلي</strong> — نستخدم Tavily API للبحث في 20+ مصدراً يومياً</li>
-                        <li>✅ <strong>تحقق من الدقة</strong> — كل خبر يُجلب من مصادر موثوقة (Reuters, TechCrunch, BBC, CNBC, The Guardian, Forbes...)</li>
-                        <li>🔄 <strong>تحديث تلقائي</strong> — الأخبار تتجدد مرتين يومياً (06:00 و 12:00 UTC) عبر GitHub Actions</li>
-                        <li>🔗 <strong>روابط مباشرة</strong> — كل خبر يحوي رابطاً للمصدر الأصلي للتحقق</li>
-                        <li>📊 <strong>أخبار حقيقية محدثة</strong> — جميع الأخبار مأخوذة من الإنترنت الفعلي عبر Tavily Search API</li>
+                        <li>✅ <strong>تحقق من الدقة</strong> — كل خبر من Reuters, TechCrunch, BBC, CNBC, The Guardian, Forbes, Hollywood Reporter وغيرها</li>
+                        <li>🔄 <strong>تحديث تلقائي</strong> — الأخبار تتجدد يومياً عبر GitHub Actions</li>
+                        <li>📝 <strong>تلخيص ذكي</strong> — نلخص الأخبار بالعربية لقراءة سريعة</li>
+                        <li>🔗 <strong>روابط مباشرة</strong> — زر "اقرأ المزيد" ينقلك للمصدر الأصلي</li>
                     </ul>
                 </div>
-                <div class="about-card features">
+                <div class="about-card">
                     <h3>🌟 المميزات</h3>
                     <ul>
                         <li>📰 تغطية 4 أقسام: AI، شركات، شخصيات، أفلام</li>
-                        <li>📊 إحصائيات حية لعدد الأخبار</li>
-                        <li>🔍 فلترة الأخبار حسب القسم</li>
-                        <li>🌙 وضع ليلي/نهاري</li>
+                        <li>📊 رسوم بيانية ونسب مئوية تفاعلية</li>
+                        <li>📝 تلخيص ذكي للأخبار بالعربية</li>
+                        <li>🌙 وضع ليلي/نهاري مع حفظ التفضيل</li>
                         <li>🚨 شريط أخبار عاجلة</li>
-                        <li>📱 تصميم متجاوب مع كل الأجهزة</li>
-                        <li>🔗 روابط للمصادر الأصلية</li>
+                        <li>📱 تصميم زجاجي عصري متجاوب</li>
+                        <li>🔗 روابط مباشرة للمصادر الأصلية</li>
                     </ul>
                 </div>
-                <div class="about-card accuracy">
+                <div class="about-card">
                     <h3>✅ التزامنا بالدقة</h3>
-                    <p>نحن نلتزم بتقديم أخبار دقيقة بنسبة <strong>100%</strong>. كل خبر في الموقع:</p>
+                    <p>نلتزم بتقديم أخبار دقيقة بنسبة <strong>100%</strong>. كل خبر:</p>
                     <ul>
-                        <li>✓ مصدره موقع إخباري معروف وموثوق (Reuters, BBC, TechCrunch, The Guardian, Forbes, CNBC, Hollywood Reporter, TMZ...)</li>
+                        <li>✓ مصدره موقع إخباري معروف (Reuters, BBC, TechCrunch, The Guardian, Forbes, CNBC وغيرها)</li>
                         <li>✓ يحوي رابطاً للمقال الأصلي للتحقق الشخصي</li>
                         <li>✓ يتم تحديثه يومياً ليعكس آخر المستجدات</li>
                         <li>✓ يتم فلترة المحتوى الترويجي والمضلل</li>
                     </ul>
                 </div>
-                <div class="about-card tech-stack">
+                <div class="about-card">
                     <h3>🛠️ التقنيات المستخدمة</h3>
                     <div class="tech-badges">
                         <span class="tech-badge">HTML5</span>
@@ -170,13 +203,19 @@
                         <span class="tech-badge">Tavily API</span>
                         <span class="tech-badge">GitHub Actions</span>
                         <span class="tech-badge">GitHub Pages</span>
+                        <span class="tech-badge">Glassmorphism</span>
                     </div>
+                </div>
+                <div class="about-card">
+                    <h3>📞 تواصل معنا</h3>
+                    <p>نرحب باقتراحاتك وتعليقاتك! استخدم قسم التعليقات بالأسفل لمشاركة رأيك أو الإبلاغ عن خطأ.</p>
+                    <p style="margin-top:10px;color:var(--accent);">📧 قريباً: نموذج تواصل متكامل</p>
                 </div>
             </div>
         </section>
 
-        <!-- ===== قسم التعليقات ===== -->
-        <section class="section comments-section" id="comments">
+        <!-- ===== COMMENTS ===== -->
+        <section class="section" id="comments">
             <div class="section-header">
                 <h2>💬 شاركنا رأيك</h2>
                 <span class="badge">التعليقات</span>
@@ -201,48 +240,43 @@
                 </div>
             </div>
         </section>
-
-        <div id="error" class="error-section hidden">
-            <span class="error-icon">⚠️</span>
-            <p id="errorMessage">حدث خطأ أثناء تحميل الأخبار.</p>
-            <button onclick="location.reload()" class="retry-btn">إعادة المحاولة</button>
-        </div>
     </main>
 
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
                     <h3>🤖 AI News Hub</h3>
-                    <p>منصتك اليومية لأخبار الذكاء الاصطناعي، المشاهير، والأفلام</p>
+                    <p>منصتك اليومية لأخبار الذكاء الاصطناعي، المشاهير، والأفلام — بالعربية</p>
                     <p class="footer-motto">📢 أخبار دقيقة 100% — نتحرى الدقة قبل النشر</p>
                 </div>
                 <div class="footer-links">
                     <h4>روابط سريعة</h4>
-                    <a href="#ai-news" data-section="ai-news">🧠 أخبار AI</a>
-                    <a href="#companies" data-section="companies">🏢 الشركات</a>
-                    <a href="#people" data-section="people">👤 الشخصيات</a>
-                    <a href="#movies" data-section="movies">🎬 الأفلام</a>
-                    <a href="#about">ℹ️ عن الموقع</a>
-                    <a href="#comments">💬 التعليقات</a>
+                    <a data-section="ai-news">🧠 أخبار AI</a>
+                    <a data-section="companies">🏢 الشركات</a>
+                    <a data-section="people">👤 الشخصيات</a>
+                    <a data-section="movies">🎬 الأفلام</a>
+                    <a data-section="charts">📊 الإحصائيات</a>
+                    <a data-section="about">ℹ️ عن الموقع</a>
                 </div>
                 <div class="footer-stats">
-                    <div class="stat">
-                        <span class="stat-num" id="footerNewsCount">0</span>
-                        <span class="stat-label">خبر اليوم</span>
+                    <div class="footer-stat">
+                        <span class="footer-stat-num" id="footerNewsCount">0</span>
+                        <span class="footer-stat-label">خبر اليوم</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-num">20+</span>
-                        <span class="stat-label">مصدر</span>
+                    <div class="footer-stat">
+                        <span class="footer-stat-num">20+</span>
+                        <span class="footer-stat-label">مصدر</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-num">100%</span>
-                        <span class="stat-label">دقة</span>
+                    <div class="footer-stat">
+                        <span class="footer-stat-num">100%</span>
+                        <span class="footer-stat-label">دقة</span>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© <span id="year"></span> AI News Hub | يتم التحديث يومياً تلقائياً | جميع الأخبار لها مصادرها الأصلية | جميع الأخبار مأخوذة من مصادر إخبارية موثوقة (Reuters, BBC, TechCrunch, The Guardian, Forbes, CNBC, Hollywood Reporter وغيرها)</p>
+                <p>© <span id="year"></span> AI News Hub | يتم التحديث يومياً تلقائياً | جميع الأخبار لها مصادرها الأصلية من Reuters, BBC, TechCrunch, The Guardian, Forbes, CNBC, Hollywood Reporter وغيرها</p>
             </div>
         </div>
     </footer>
