@@ -28,11 +28,9 @@ body.light-mode {
 /* ===== Breaking News Bar ===== */
 .breaking-news-bar {
     background: linear-gradient(135deg, #dc2626, #991b1b);
-    padding: 8px 0;
-    position: sticky;
-    top: 0;
-    z-index: 200;
+    padding: 10px 0;
     overflow: hidden;
+    width: 100%;
 }
 
 .breaking-news-container {
@@ -44,11 +42,12 @@ body.light-mode {
 .breaking-label {
     background: #fff;
     color: #dc2626;
-    padding: 2px 12px;
+    padding: 3px 14px;
     border-radius: 4px;
     font-weight: 800;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     white-space: nowrap;
+    flex-shrink: 0;
     animation: pulse-badge 2s infinite;
 }
 
@@ -60,19 +59,23 @@ body.light-mode {
 .breaking-news-ticker {
     flex: 1;
     overflow: hidden;
-    white-space: nowrap;
+    height: 28px;
+    position: relative;
 }
 
-.breaking-news-ticker span {
+.breaking-news-ticker-content {
     display: inline-block;
+    white-space: nowrap;
     color: #fff;
     font-weight: 600;
-    font-size: 0.85rem;
-    animation: ticker 30s linear infinite;
+    font-size: 0.9rem;
+    line-height: 28px;
+    animation: ticker-scroll 80s linear infinite;
+    padding-left: 100%;
 }
 
-@keyframes ticker {
-    0% { transform: translateX(100%); }
+@keyframes ticker-scroll {
+    0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
 }
 
@@ -81,10 +84,6 @@ body.light-mode {
     background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
     border-bottom: 1px solid #30363d;
     padding: 20px 0;
-    position: sticky;
-    top: 38px;
-    z-index: 100;
-    backdrop-filter: blur(10px);
     transition: background 0.3s;
 }
 
@@ -239,7 +238,6 @@ body.light-mode .last-update-bar {
 /* ===== Sections ===== */
 .section {
     margin: 40px 0;
-    scroll-margin-top: 150px;
 }
 
 .section-header {
@@ -905,6 +903,7 @@ body.light-mode .footer-bottom {
         text-align: center;
     }
     .logo h1 { font-size: 1.4rem; }
+    .logo { flex-direction: column; }
     .nav { justify-content: center; }
     .news-grid { grid-template-columns: 1fr; }
     .sources-grid { grid-template-columns: repeat(2, 1fr); }

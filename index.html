@@ -18,7 +18,7 @@
         <div class="container breaking-news-container">
             <span class="breaking-label">🚨 عاجل</span>
             <div class="breaking-news-ticker" id="breakingTicker">
-                <span id="breakingText">جاري تحميل آخر الأخبار العاجلة...</span>
+                <span class="breaking-news-ticker-content" id="breakingText">جاري تحميل آخر الأخبار العاجلة...</span>
             </div>
         </div>
     </div>
@@ -38,11 +38,11 @@
                 </div>
             </div>
             <nav class="nav">
-                <a href="#ai-news" class="nav-link active">🧠 أخبار AI</a>
-                <a href="#companies" class="nav-link">🏢 الشركات</a>
-                <a href="#people" class="nav-link">👤 الشخصيات</a>
-                <a href="#movies" class="nav-link">🎬 الأفلام</a>
-                <a href="#about" class="nav-link">ℹ️ عن الموقع</a>
+                <a href="#ai-news" class="nav-link active" data-section="ai-news">🧠 أخبار AI</a>
+                <a href="#companies" class="nav-link" data-section="companies">🏢 الشركات</a>
+                <a href="#people" class="nav-link" data-section="people">👤 الشخصيات</a>
+                <a href="#movies" class="nav-link" data-section="movies">🎬 الأفلام</a>
+                <a href="#about" class="nav-link" data-section="about">ℹ️ عن الموقع</a>
             </nav>
             <div class="last-update-bar">
                 <span>🔄 آخر تحديث: </span>
@@ -57,18 +57,18 @@
             <p>جاري تحميل آخر الأخبار...</p>
         </div>
 
-        <!-- ===== قسم أخبار AI ===== -->
+        <!-- ===== قسم أخبار AI مع فلترة ===== -->
         <section id="ai-news" class="section">
             <div class="section-header">
-                <h2>🧠 أخبار الذكاء الاصطناعي</h2>
-                <span class="badge">أحدث الأخبار</span>
+                <h2>📰 جميع الأخبار</h2>
+                <span class="badge" id="totalBadge">97 خبراً</span>
             </div>
             <div class="section-filter">
                 <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="ai-news">AI</button>
-                <button class="filter-btn" data-filter="companies">شركات</button>
-                <button class="filter-btn" data-filter="people">شخصيات</button>
-                <button class="filter-btn" data-filter="movies">أفلام</button>
+                <button class="filter-btn" data-filter="ai-news">🧠 AI</button>
+                <button class="filter-btn" data-filter="companies">🏢 شركات</button>
+                <button class="filter-btn" data-filter="people">👤 شخصيات</button>
+                <button class="filter-btn" data-filter="movies">🎬 أفلام</button>
             </div>
             <div class="news-grid" id="allNewsGrid"></div>
         </section>
@@ -133,9 +133,10 @@
                     <h3>⚙️ كيف يعمل؟</h3>
                     <ul>
                         <li>🤖 <strong>بحث آلي</strong> — نستخدم Tavily API للبحث في 20+ مصدراً يومياً</li>
-                        <li>✅ <strong>تحقق من الدقة</strong> — كل خبر يُجلب من مصادر موثوقة (Reuters, TechCrunch, BBC, CNBC...)</li>
-                        <li>🔄 <strong>تحديث تلقائي</strong> — الأخبار تتجدد مرتين يومياً (06:00 و 12:00 UTC)</li>
+                        <li>✅ <strong>تحقق من الدقة</strong> — كل خبر يُجلب من مصادر موثوقة (Reuters, TechCrunch, BBC, CNBC, The Guardian, Forbes...)</li>
+                        <li>🔄 <strong>تحديث تلقائي</strong> — الأخبار تتجدد مرتين يومياً (06:00 و 12:00 UTC) عبر GitHub Actions</li>
                         <li>🔗 <strong>روابط مباشرة</strong> — كل خبر يحوي رابطاً للمصدر الأصلي للتحقق</li>
+                        <li>📊 <strong>أخبار حقيقية محدثة</strong> — جميع الأخبار مأخوذة من الإنترنت الفعلي عبر Tavily Search API</li>
                     </ul>
                 </div>
                 <div class="about-card features">
@@ -154,8 +155,8 @@
                     <h3>✅ التزامنا بالدقة</h3>
                     <p>نحن نلتزم بتقديم أخبار دقيقة بنسبة <strong>100%</strong>. كل خبر في الموقع:</p>
                     <ul>
-                        <li>✓ مصدره موقع إخباري معروف وموثوق</li>
-                        <li>✓ يحوي رابطاً للمقال الأصلي</li>
+                        <li>✓ مصدره موقع إخباري معروف وموثوق (Reuters, BBC, TechCrunch, The Guardian, Forbes, CNBC, Hollywood Reporter, TMZ...)</li>
+                        <li>✓ يحوي رابطاً للمقال الأصلي للتحقق الشخصي</li>
                         <li>✓ يتم تحديثه يومياً ليعكس آخر المستجدات</li>
                         <li>✓ يتم فلترة المحتوى الترويجي والمضلل</li>
                     </ul>
@@ -218,10 +219,10 @@
                 </div>
                 <div class="footer-links">
                     <h4>روابط سريعة</h4>
-                    <a href="#ai-news">🧠 أخبار AI</a>
-                    <a href="#companies">🏢 الشركات</a>
-                    <a href="#people">👤 الشخصيات</a>
-                    <a href="#movies">🎬 الأفلام</a>
+                    <a href="#ai-news" data-section="ai-news">🧠 أخبار AI</a>
+                    <a href="#companies" data-section="companies">🏢 الشركات</a>
+                    <a href="#people" data-section="people">👤 الشخصيات</a>
+                    <a href="#movies" data-section="movies">🎬 الأفلام</a>
                     <a href="#about">ℹ️ عن الموقع</a>
                     <a href="#comments">💬 التعليقات</a>
                 </div>
@@ -241,7 +242,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© <span id="year"></span> AI News Hub | يتم التحديث يومياً تلقائياً | جميع الأخبار لها مصادرها الأصلية</p>
+                <p>© <span id="year"></span> AI News Hub | يتم التحديث يومياً تلقائياً | جميع الأخبار لها مصادرها الأصلية | جميع الأخبار مأخوذة من مصادر إخبارية موثوقة (Reuters, BBC, TechCrunch, The Guardian, Forbes, CNBC, Hollywood Reporter وغيرها)</p>
             </div>
         </div>
     </footer>
