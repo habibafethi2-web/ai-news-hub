@@ -1,0 +1,895 @@
+{
+  "updatedAt": "2026-05-24T18:36:39.419Z",
+  "date": "الأحد، 24 ماي 2026",
+  "news": [
+    {
+      "title": "March 2026 AI News Roundup: Breakthroughs and the Fights, Forecasts, and Fears - Peterson Technology Partners",
+      "description": "StrongDM provides an access management platform and is one firm leading this coding automation charge. Their “Software Factory” approach explicitly disallows humans writing or even reviewing code, using human developers instead to make roadmaps. AI a...",
+      "url": "https://www.ptechpartners.com/2026/04/07/march-2026-ai-news-roundup-breakthroughs-and-the-fights-forecasts-and-fears",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "6 AI breakthroughs that will define 2026 | InfoWorld",
+      "description": "can now build applications and do higher-value, creative work. [...] The single most important proving ground for AI’s reasoning capabilities is in coding. An AI’s ability to generate and execute code provides a critical bridge from the statistical, ...",
+      "url": "https://www.infoworld.com/article/4108092/6-ai-breakthroughs-that-will-define-2026.html",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "How 2026 Could Decide the Future of Artificial Intelligence | Council on Foreign Relations",
+      "description": "Artificial intelligence is set to transform every aspect of the world with an imminent breakthrough to superintelligence—or it’s a bubble that will burst and expose that a rapidly expanding tech empire has no clothes. The reality is neither. Instead,...",
+      "url": "https://www.cfr.org/articles/how-2026-could-decide-future-artificial-intelligence",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The trends that will shape AI and tech in 2026 | IBM",
+      "description": "2024 ended on a high note for open-source AI with Meta’s Llama models gaining traction. Since then, the open-source AI ecosystem has grown a lot, with smaller, domain-specific models achieving impressive results—it’s the case for IBM’s Granite, Ai2’s...",
+      "url": "https://www.ibm.com/think/news/ai-tech-trends-predictions-2026",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Stanford AI Experts Predict What Will Happen in 2026 | Stanford HAI",
+      "description": "More than 200 academic teams submitted proposals to the AI for Organizations Grand Challenge, exploring how artificial intelligence will transform teamwork and collaboration. [...] In 2026, I expect more focus on the archeology of the high-performing...",
+      "url": "https://hai.stanford.edu/news/stanford-ai-experts-predict-what-will-happen-in-2026",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "What's next in AI: 7 trends to watch in 2026 - Microsoft Source",
+      "description": "Seven AI trends to watch in 2026 will make AI a true partner — boosting teamwork, security, research momentum and infrastructure efficiency....",
+      "url": "https://news.microsoft.com/source/features/ai/whats-next-in-ai-7-trends-to-watch-in-2026",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The 2026 AI Index Report | Stanford HAI",
+      "description": "Industry produced over 90% of notable frontier models in 2025, and several of those models now meet or exceed human baselines on PhD-level science questions, multimodal reasoning, and competition mathematics. On a key coding benchmark—SWE-bench Verif...",
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "AI Trends 2026 | Info-Tech Research Group",
+      "description": "### 1. AI Trends 2026 Report\n\nIT leaders face the complex challenge of balancing AI’s potential with competing risks and responsibilities. In the race to deliver tangible AI value, IT must:\n\nRead our AI Trends report now to make smarter, faster AI de...",
+      "url": "https://www.infotech.com/research/ss/ai-trends-2026",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "AI News Today - May 18, 2026: 13 Biggest Stories",
+      "description": "The US Commerce Department's AI Safety and Infrastructure Bureau (CAISI) has finalized pre-deployment evaluation agreements with all five frontier AI labs: OpenAI, Anthropic, Google DeepMind, Microsoft, and xAI. This means every major model release i...",
+      "url": "https://www.buildfastwithai.com/blogs/ai-news-today-may-18-2026",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Artificial Intelligence - AI Update, May 22, 2026: AI News and Views From the Past Week",
+      "description": "Independent AI watchdog warns advanced agents can already behave deceptively. Nonprofit evaluator METR released a report concluding that AI agents inside major AI labs including Anthropic, Google, Meta, and OpenAI are already capable of initiating li...",
+      "url": "https://www.marketingprofs.com/opinions/2026/54803/ai-update-may-22-2026-ai-news-and-views-from-the-past-week",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Google DeepMind, Microsoft and xAI have agreed to give US ...",
+      "description": "On May 2, 2026, Anthropic launched a cybersecurity AI, challenging OpenAI. Meta acquired Assured Robot Intelligence to enhance humanoid robot...",
+      "url": "https://www.instagram.com/p/DYAAZB_FuIU",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "AI News - May 2026: Key Events & Releases - dentro.de/ai",
+      "description": "2025-12-19\n\nAnthropic releases Agent Skills as an open standard  \nAnthropic has open-sourced its Agent Skills framework through a minimalist specification published on GitHub, with initial adoption by several development tools but no official support...",
+      "url": "https://dentro.de/ai/news",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "AI Updates Today (May 2026) – Latest AI Model Releases",
+      "description": "Free · One email a week · Unsubscribe anytime\n\nRead by people at OpenAI, Anthropic, Google, Meta — and 400,000+ more.\n\n## Open Source AI Updates\n\nRecent open-weight model releases with permissive licenses\n\nNo open source releases this week\n\n### Open ...",
+      "url": "https://llm-stats.com/llm-updates",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Anthropic looks 'more stable' to me than OpenAI, says New York University’s Gary Marcus",
+      "description": "#### News Tips\n\nGot a confidential news tip? We want to hear from you.\n\n#### CNBC Newsletters\n\nSign up for free newsletters and get more CNBC delivered to your inbox\n\nGet this delivered to your inbox, and more info about our products and services.\n\n#...",
+      "url": "https://www.cnbc.com/video/2026/05/22/anthropic-looks-more-stable-to-me-than-openai-says-new-york-universityas-gary-marcus.html",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Google I/O 2026, Karpathy Joins Anthropic, and Cerebras' $95B IPO",
+      "description": "In this episode, the mates welcome Andrew Feldman, Co-founder and CEO of Cerebras Systems, and discuss several tech news such as Google's...",
+      "url": "https://www.youtube.com/watch?v=kklrodAua_U",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Prediction: in 12 months, will OpenAI, Anthropic, Google, Microsoft ...",
+      "description": "Business AI will likely be led by Microsoft & OpenAI – yes, the pair. Microsoft wins because businesses buy transition, coverage, and trust —...",
+      "url": "https://www.facebook.com/groups/698593531630485/posts/1553275039495659",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "US and tech firms strike deal to review AI models for national security before public release | Technology | The Guardian",
+      "description": "OpenAI and Anthropic inked similar deals with the Biden administration two years ago and CAISI notes the agency has already completed more than 40 such evaluations, including on unreleased models. It is common for developers to share unreleased AI mo...",
+      "url": "https://www.theguardian.com/technology/2026/may/05/commerce-department-ai-agreements-google-microsoft-xai",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Google, Microsoft agree to give US early access to evaluate AI models",
+      "description": "Google, Microsoft, and xAI have agreed to give the U.S. early access to their AI models to evaluate the systems' capabilities and help...",
+      "url": "https://seekingalpha.com/news/4585585-google-microsoft-xai-agree-to-give-us-early-access-to-evaluate-ai-models",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "OpenAI: Latest news and insights – Computerworld",
+      "description": "February 26, 2026: As it bids to push further into the enterprise, OpenAI announced that it has partnered with several large consulting firms. Frontier Alliances, as the partner initiative is called, will involve work with Accenture, Boston Consultin...",
+      "url": "https://www.computerworld.com/article/4015023/openai-latest-news-and-insights.html",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Artificial Intelligence - AI Update, May 1, 2026: AI News and Views From the Past Week",
+      "description": "OpenAI expands cloud strategy with Amazon partnership. OpenAI is making its models available through Amazon Web Services, expanding beyond its prior reliance on Microsoft Azure. The move allows businesses to access OpenAI models within their existing...",
+      "url": "https://www.marketingprofs.com/opinions/2026/54640/ai-update-may-1-2026-ai-news-and-views-from-the-past-week",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "OpenAI News | Today's Latest Stories - Reuters",
+      "description": "Businesscategory· May 20, 2026. OpenAI aiming for speedy IPO, source says · May 19, 2026. OpenAI to open its first applied AI lab outside of U.S. in Singapore....",
+      "url": "https://www.reuters.com/technology/openai",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "OpenAI News",
+      "description": "May 22, 2026. Geometry > ArtCard > Polynomial Construction. An OpenAI model has disproved a central conjecture in discrete geometry. Research May 20, 2026. Art...",
+      "url": "https://openai.com/news",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "OpenAI Research | Release",
+      "description": "May 7, 2026. Advancing voice intelligence with new models in the API ; May 5, 2026. GPT-5.5 Instant: smarter, clearer, and more personalized ; Apr 23, 2026....",
+      "url": "https://openai.com/research/index/release",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Open Source AI News | May, 2026 (STARTUP EDITION)",
+      "description": "Gizmodo’s piece on Google giving OpenAI new reasons to worry reflects a broader truth: the top of the AI market is unstable. Even giant players can lose attention, users, and momentum quickly when distribution channels shift. Search, productivity sui...",
+      "url": "https://blog.mean.ceo/open-source-ai-news-may-2026",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "OpenAI is offering $2M in tokens to every YC company in the spring ...",
+      "description": "... likes, 113 comments - ycombinator on May 21, 2026: \"OpenAI is ... Download Voru app & to keep up with the latest AI & Tech news....",
+      "url": "https://www.instagram.com/reel/DYnVmgKyr1B",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "YouTube",
+      "description": "... OpenAI take the first steps to public trading and ... The Rachel Maddow Show 5_23_2026 _ MSNBC Breaking News Today may 23_ 2026(720P_HD)....",
+      "url": "https://www.youtube.com/watch?v=LSD7kwLfJLs",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Google AI announcements from April 2026",
+      "description": "The big picture\n\nApril 2026 was a huge month for AI at Google. Cloud Next ‘26 was all about helping businesses make the most of agentic AI with new releases like the Gemini Enterprise Agent Platform and our eighth-generation TPUs — two specialized ch...",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Google updates its Gemini app to take on ChatGPT and Claude at IO 2026 | TechCrunch",
+      "description": "At its annual Google I/O event on Tuesday, Google announced that the Gemini app is getting a series of new updates, including a “Daily Brief” feature, a redesigned interface, access to a new AI video model called Gemini Omni, and new personal AI agen...",
+      "url": "https://techcrunch.com/2026/05/19/google-updates-its-gemini-app-to-take-on-chatgpt-and-claude-at-io-2026",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The 13 biggest announcements at Google I/O 2026 | The Verge",
+      "description": "## Gemini 3.5\n\nGoogle launched updated AI models at I/O, starting with Gemini 3.5 Flash, with Gemini 3.5 Pro following next month. Starting today, Gemini 3.5 Flash will be the default model for the Gemini app and AI Mode in Search. Google says the ne...",
+      "url": "https://www.theverge.com/tech/933415/google-io-2026-biggest-announcements-ai-gemini",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Google Gemini's New Updates are INSANE! (Google I/O ... - YouTube",
+      "description": "... Google Gemini's latest updates from Google I/O 2026. It covers Google Spark 24/7 AI Agents, Google's new Omni model, Gemini 3.5 Flash and more!...",
+      "url": "https://www.youtube.com/watch?v=-3yhqxAswqc",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "At Google I/O 2026, Google unveiled the latest generation Gemini ...",
+      "description": "A new AI model designed for the \"agentic era.\" More capable than previous versions, with native image and audio output and tool use. Gemini 2.0...",
+      "url": "https://www.facebook.com/lifehacker/posts/at-google-io-2026-google-unveiled-the-latest-generation-gemini-35-flash-ai-model/1344020800924270",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Gemini Drops: New updates to the Gemini app, April 2026",
+      "description": "Learn more:\n\nLearn more:\n\nLearn more:\n\nLearn more:\n\nLearn more:\n\nLearn more:\n\nWelcome to the 10th edition of Gemini Drops. From native desktop support to music creation, we’re making your AI partner more integrated than ever:\n\nFind out even more on t...",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-april-2026",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Everything Google announced at I/O 2026: Gemini, Android, more",
+      "description": "AI Mode is now powered by Gemini 3.5 Flash. · A new intelligent Search box expands the more you type in a reflection of how people have longer...",
+      "url": "https://9to5google.com/2026/05/19/google-io-2026-news",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Google Gemini 2026 Just Changed AI Forever | The Agentic AI Era ...",
+      "description": "Google I/O 2026 may have marked the beginning of a completely new era in artificial intelligence. In this video, we break down Google's...",
+      "url": "https://www.youtube.com/watch?v=XMhqNqWI0_0",
+      "source": "مصدر موثوق",
+      "category": "companies",
+      "section": "companiesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "GitHub Copilot vs Claude Code vs Cursor vs Windsurf (2026)",
+      "description": "The AI coding tool landscape in 2026 is past the “pick one and move on” phase. GitHub Copilot, Claude Code, Cursor, and Windsurf each do something the others don’t, and the right answer depends on workflow, team structure, and security requirements m...",
+      "url": "https://medium.com/@kanerika/github-copilot-vs-claude-code-vs-cursor-vs-windsurf-2026-c54f8a5cc051",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Vibe Coding with Cursor, Copilot & Claude | IDE Tools Guide 2026 — Newly",
+      "description": "Google acquired the Windsurf team in late 2025, suggesting strong continued development.\n\n## Claude Integration Options\n\nClaude Code from Anthropic has emerged as the leading AI coding assistant. Claude Opus 4 achieves 72.5% on SWE-bench, and Claude ...",
+      "url": "https://newly.app/articles/vibe-coding-ide-tools",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Vibe Coding with Cursor, Copilot & Claude | IDE Tools Guide 2026 — Newly",
+      "description": "Google acquired the Windsurf team in late 2025, suggesting strong continued development.\n\n## Claude Integration Options\n\nClaude Code from Anthropic has emerged as the leading AI coding assistant. Claude Opus 4 achieves 72.5% on SWE-bench, and Claude ...",
+      "url": "https://natively.dev/articles/vibe-coding-ide-tools",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The 10 Best Vibe Coding Tools in 2026: Our Choices",
+      "description": "Choosing the tool that suits you best is the first and most important call you need to make. It saves you time, cuts costs, and gets you a working product faster. This guide walks you through the 10 best vibe coding tools for 2026. For each tool, I'l...",
+      "url": "https://roadmap.sh/vibe-coding/best-tools",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "AI Coding Tools Pricing 2026: Cursor vs Copilot vs Claude Code vs Windsurf Cost Compared | vibecodemeta",
+      "description": "Subscription stacking. Most serious vibe coders end up paying for two tools: one IDE (Cursor or Windsurf) and one terminal agent (Claude Code or Aider). Budget $30-$120/month total, not $20.\n\n## Cost Per Real Task: Our Test\n\nWe ran the same five task...",
+      "url": "https://vibecodemeta.com/blog/ai-coding-tools-pricing-2026",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Best vibe coding tools in 2026: comparison and tradeoffs - Appwrite",
+      "description": "Cursor - Best overall AI coding IDE for serious refactors, file context, and `.cursorrules`-style control (watch for performance on huge repos).\n Windsurf - Best for agentic IDE workflows when you want direct edits and a polished UI; mind monthly cre...",
+      "url": "https://appwrite.io/blog/post/comparing-vibe-coding-tools",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Cursor vs Copilot vs Windsurf vs Claude Code: Real Verdict | AI Workflows Blog",
+      "description": "# Cursor vs Copilot vs Windsurf vs Claude Code: Real Verdict\n\nBy AI Workflows Team · March 1, 2026 · 15 min read\n\nCompare the best AI coding tools in 2026: Cursor, GitHub Copilot, Windsurf, and Claude Code. Features, pricing, benchmarks, and real dev...",
+      "url": "https://www.aiworkflows.tools/blog/best-ai-coding-tools-2026-cursor-copilot-windsurf-claude-code-comparison",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Claude Code vs Antigravity vs Codex vs Cursor vs Kiro vs Copilot vs ...",
+      "description": "Logo\n\nGet a Quote\n\nLogo\n\nHomeAboutServicesBlogContact\n\nBack to Blog\n\nDeveloper ToolsMay 20, 202619 min read\n\n# AI Coding Agents & IDEs: The Complete 2026 Comparison - Claude Code vs Antigravity 2.0 vs Codex vs Cursor vs Kiro vs Copilot vs Windsurf\n\nS...",
+      "url": "https://lushbinary.com/blog/ai-coding-agents-comparison-cursor-windsurf-claude-copilot-kiro-2026",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Elon Musk News | May, 2026 (STARTUP EDITION)",
+      "description": "Elon Musk 2\")\n\nElon Musk news in May 2026 is less about celebrity spectacle and more about three pressure points that every founder should watch closely: the OpenAI trial, the economics of Tesla’s giant pay package, and the market story around SpaceX...",
+      "url": "https://blog.mean.ceo/elon-musk-news-may-2026",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "ILTV News Flash – May 19, 2026 Elon Musk praised ...",
+      "description": "ILTV News Flash – May 19, 2026 Elon Musk praised Israel's innovation ecosystem at a Tel Aviv summit, calling it the world's top country for...",
+      "url": "https://www.facebook.com/iltvisraelnews/videos/iltv-news-flash-may-19-2026elon-musk-praised-israels-innovation-ecosystem-at-a-t/980378384715694",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Elon Musk News: Latest on Tesla, SpaceX, Politics & More | NBC News",
+      "description": "## House Republicans cancel vote curbing Trump on Iran\n\nIran-Music Ceremony On Ruins Of Destroyed Synagogue\nIran-Music Ceremony On Ruins Of Destroyed Synagogue\n\n© 2026 NBCUniversal Media, LLC [...] Donald Trump Jr., and Bettina Anderson arrive at And...",
+      "url": "https://www.nbcnews.com/tech/elon-musk",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Elon Musk - BBC News",
+      "description": "## Musk could become world's first trillionaire\n\nElon Musk's SpaceX has revealed its plans to go public in the US, allowing people to trade shares in the firm on the stock market.\n\nStormy weather, rolling in from the Gulf at sunrise, surrounds the Sp...",
+      "url": "https://www.bbc.com/news/topics/c302m85q53mt",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Elon Musk’s SpaceX unveils filing for blockbuster IPO | Elon Musk News | Al Jazeera",
+      "description": "Musk’s plans for lunar and Mars missions and to expand its Starlink satellite internet business depend on the new rocket. The test launch, originally scheduled for Tuesday, is now expected later this week.\n\nThe board has given Musk control over the c...",
+      "url": "https://www.aljazeera.com/economy/2026/5/20/elon-musks-spacex-unveils-filing-for-blockbuster-ipo",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "SpaceX IPO Poised to Make Elon Musk the World’s First Trillionaire",
+      "description": "## US-Bound Flights With Ebola Risk to Go to Dulles for CDC Testing\n\n## Republicans Cancel Votes Amid Trump’s ‘Anti-Weaponization’ Fund\n\n# Elon Musk Poised to Be World’s First Trillionaire After SpaceX IPO\n\nElon Musk is poised to become the world’s f...",
+      "url": "https://www.today.com/video/spacex-ipo-poised-to-make-elon-musk-the-world-s-first-trillionaire-263726661750",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "SpaceX Warns of Mass Extinction in Eye-Popping IPO Pitch",
+      "description": "After years of operating in relative darkness for a company of its size and ambitions, Elon Musk’s SpaceX finally pulled back the curtain on Wednesday when it filed to go public. In a sweeping prospectus laying out a mission “to build the systems and...",
+      "url": "https://nymag.com/intelligencer/article/elon-musk-spacex-ipo-elon-musk-revelations.html",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Elon Musk - The New York Times",
+      "description": "Advertisement\n\nSupported by\n\n# Elon Musk\n\n## Latest\n\n### SpaceX Completes Mostly Successful Starship Rocket Flight\n\nThe 12th test flight of SpaceX’s gargantuan rocket launched on Friday evening and ended its journey in the Indian Ocean just over an h...",
+      "url": "https://www.nytimes.com/spotlight/elon-musk",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Enterprise Will Be a Top OpenAI Priority In 2026, Sam Altman Tells Editors at NYC Lunch",
+      "description": "Altman also addressed the ‘Code Red’ within OpenAI following the emergence of Google’s Gemini as a competitor. Altman has said Google’s AI model surpassed OpenAI’s GPT models in some areas, but at the lunch he pushed back on the notion that the lates...",
+      "url": "https://www.bigtechnology.com/p/enterprise-will-be-a-top-openai-priority",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Sam Altman Says 2026 May Be a Big Year for AI - Bloomberg.com",
+      "description": "On this extended interview from The Circuit with Emily Chang, the OpenAI CEO explains how the Stargate project fits into the future of scientific discovery....",
+      "url": "https://www.bloomberg.com/news/articles/2025-06-12/video-sam-altman-says-2026-may-be-a-big-year-for-ai",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Sam Altman May Control Our Future—Can He Be Trusted? | The New Yorker",
+      "description": "In 2024, with Biden’s poll numbers slipping, Altman’s rhetoric began to shift. “I believe that America is going to be fine no matter what happens in this election,” he said. After Trump won, Altman donated a million dollars to his inaugural fund, the...",
+      "url": "https://www.newyorker.com/magazine/2026/04/13/sam-altman-may-control-our-future-can-he-be-trusted",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Sam Altman On OpenAI's Game-Changing New Device And His Longtime Feud With Elon Musk",
+      "description": "Forbes has been tracking Altman, who ranks sixth on our list of the greatest living American innovators, for more than a decade. In 2015, he was a featured member of our inaugural Forbes 30 Under 30 Venture Capital list as the newly minted 29-year-ol...",
+      "url": "https://www.forbes.com/sites/richardnieva/2026/02/03/sam-altman-explains-the-future",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Sam Altman makes 'mic drop' offer to every Y Combinator startup | TechCrunch",
+      "description": "### Topics\n\nLatest\n\nAI\n\nAmazon\n\nApps\n\nBiotech & Health\n\nClimate\n\nCloud Computing\n\nCommerce\n\nCrypto\n\nEnterprise\n\nEVs\n\nFintech\n\nFundraising\n\nGadgets\n\nGaming\n\nGoogle\n\nGovernment & Policy\n\nHardware\n\nInstagram\n\nLayoffs\n\nMedia & Entertainment\n\nMeta\n\nMicros...",
+      "url": "https://techcrunch.com/2026/05/20/sam-altman-makes-mic-drop-offer-to-every-y-combinator-startup",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "“Do You Always Tell the Truth?”: Sam Altman Rests His Case in the OpenAI Trial. - The Ringer",
+      "description": "And several witnesses chatted about the bananas five-day stretch just before Thanksgiving in 2023 when Altman was unceremoniously fired by OpenAI’s board of directors, accused of not being “consistently candid in his communication”—and then, followin...",
+      "url": "https://www.theringer.com/2026/05/15/tech/sam-altman-defense-testimony-elon-musk-trial",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Musk slams Altman trial verdict as a 'technicality,' vows to appeal",
+      "description": "In 2023, Musk started his own competing AI lab, xAI, which is now part of SpaceX. OpenAI's lawyers portrayed the lawsuit as Musk's attempt to kneecap a rival after he failed to gain control of it.\n\nDuring the weeks of testimony, jurors heard from Alt...",
+      "url": "https://www.cnbc.com/2026/05/18/musk-altman-openai-trial-verdict.html",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "What we learned from the cringey courtroom drama between Elon Musk and Sam Altman | California | The Guardian",
+      "description": "## A long list of people calling Sam Altman a liar\n\nAfter Musk’s testimony at the start of the trial, the centibillionaire’s lawyers presented several video depositions and called a series of witnesses in an attempt to show that Altman was not trustw...",
+      "url": "https://www.theguardian.com/us-news/2026/may/16/what-we-learned-elon-musk-sam-altman",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Celebrity News 2026 - Celeb Red Carpet, Relationships, and Event Coverage",
+      "description": "### Nicole Richie Makes Rare Outing With Daughter Kate\n\nEva Longoria wearing a string of looks in Cannes.\n\n### Eva Longoria Wears 5 Different Dresses in Cannes\n\nCelebrity Sightings In New York City - May 19, 2026\n\n### Blake Lively’s Latest Look Is So...",
+      "url": "https://www.harpersbazaar.com/celebrity",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "15 Celebrities Who Are in Dire Need of a Great 2026 - AOL",
+      "description": "## 9. Armie Hammer\n\nA man with short brown hair, light beard, and blue eyes wears a brown shirt and black jacket, posing against a blue background with white text and a bear logo.\n\nOnce positioned as Hollywood’s next leading man, Hammer’s career coll...",
+      "url": "https://www.aol.com/finance/15-celebrities-dire-great-2026-140058961.html",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Hollywood Life – Latest Hollywood Celebrity & Entertainment News",
+      "description": "### Taylor & Travis’\n\n#### Basketball Date Night\n\nCLEVELAND, OHIO - MAY 23: Travis Kelce (R) of the Kansas City Chiefs reacts as Singer Taylor Swift (L) looks on during the fourth quarter in Game Three between the New York Knicks and the Cleveland Ca...",
+      "url": "https://hollywoodlife.com",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "TIME100: The Most Influential People of 2026",
+      "description": "# The 100 Most Influential People of 2026\n\nFrom pioneers, leaders, and titans to artists, innovators, and icons, introducing the 2026 TIME100.\n\n## Icons\n\nWagner Moura\n\nKate Hudson\n\nAlysa Liu\n\nHilary Duff\n\nAlan Cumming\n\nSterling K. Brown\n\nAdvertisemen...",
+      "url": "https://time.com/collection/100-most-influential-people/2026",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Page Six: Latest Celebrity News, Entertainment News & Gossip",
+      "description": "An image collage containing 3 images, Image 1 shows Demi Moore on the red carpet at the 79th Cannes Film Festival, Image 2 shows Eva Longoria wearing an Elie Saab Couture dress at the Cannes Film Festival, Image 3 shows Penélope Cruz on the red carpe...",
+      "url": "https://pagesix.com",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Celebrity engagements 2026: All the stars who got engaged this year",
+      "description": "“My mission with my proposal was for Taylor not to know when or where I was going to ask that 4-word question. In my case 5 because I asked ‘Will You Marry Me Please’ (I blacked out),” he continued.\n\n## Sam Smith and Christian Cowan\n\nSam Smith and Ch...",
+      "url": "https://pagesix.com/celebrity-news/celebrity-engagements-2026-all-the-stars-who-got-engaged-this-year",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Breaking Celebrity News, Entertainment News and Celeb Gossip",
+      "description": "1 day ago\n\n### NASCAR Driver Kyle Busch's Cause of Death Revealed\n\nAfter NASCAR legend Kyle Busch died following an undisclosed “severe illness,” his cause of death was officially disclosed.\n\n1 day ago\n\n### Madison LeCroy: This Babydoll Dress Is Flat...",
+      "url": "https://www.eonline.com/news",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Celebrity News | Entertainment News | TMZ.com",
+      "description": "# TMZ.com Home\n\n### Shows\n\n### Download The App\n\nCalifornia Consumer Privacy Act (CCPA) Opt-Out Icon\n052426_ray_j_primary\n\n### Ray J Knocked Out in the Second Round by Supa Hot Fire, Watch the Video\n\n0524-American-Music-Awards-2026-Nominations-Rather...",
+      "url": "https://www.tmz.com",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Top 10 Tech Moguls Controlling $2.9 Trillion in 2026 as AI, Cloud and Chips Supercharge Global Wealth",
+      "description": "When a founder owns a large percentage of a company that scales successfully, their net worth multiplies alongside the company's market capitalisation.\n\nFor example, tech and retail leaders (like those behind Amazon or Meta) see billions added to the...",
+      "url": "https://gulfnews.com/technology/top-10-billionaires-control-29-trillion-do-they-hold-their-wealth-in-cash-1.500548140",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Today, a handful of billionaires control not only a majority ...",
+      "description": "Tech's Role in Media: The conversation highlights how tech billionaires (like Larry Ellison) have become the new media moguls, using their...",
+      "url": "https://www.instagram.com/reel/DXZvSqPCEyH?hl=en",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The 390 newcomers to the 2026 list span a wide range of industries ...",
+      "description": "Elon Musk tops the 2026 Forbes Billionaires List at number one with a fortune that soared past $800 billion after merging SpaceX with his AI and...",
+      "url": "https://www.instagram.com/p/DV8x98lINZi?hl=en",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Tech oligarchs reshape humanity while billionaires of old seem quaint | Technology | The Guardian",
+      "description": "The oligarchy has changed drastically since then. Bernard Arnault, of French luxury group LVMH, Amancio Ortega, the Spanish clothing mogul, and Warren Buffett, the US investor, were the only old-school billionaires among the top 10 in 2025. The rest ...",
+      "url": "https://www.theguardian.com/technology/2026/mar/08/billionaires-tech-oligarchs",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Tech billionaires’ vision of an AI-dominated future is flawed — and dangerous",
+      "description": "A version of this article appears in the May 1, 2025 issue of Science News.\n\nphoto of Ashley Yeager\n\n### About Ashley Yeager\n\nAshley Yeager is the Deputy Editor for Multimedia at Science News. She has worked at The Scientist, the Simons Foundation, D...",
+      "url": "https://www.sciencenews.org/article/more-everything-forever-book-review-ai",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Trump Appoints Silicon Valley Billionaires to Tech Advisers Council | The New Republic",
+      "description": "Larry Ellison, the billionaire of the moment. Worth roughly $191.6 billion, the Oracle co-founder was briefly the richest man in the world back in 2025. Ellison funded the merger between Skydance Media and Paramount (owned by his son David), which in...",
+      "url": "https://newrepublic.com/post/208162/trump-science-tech-advisors-council",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Tech billionaires convinced Trump to back off an AI executive order. But much of MAGA favors AI regulation",
+      "description": "Trump’s decision to postpone signing the order leaves U.S. AI policy in a strange place both in terms of policy and politics. AI regulation is an issue which splits Trump’s base. Trump came into office supported by a cadre of “move fast and break thi...",
+      "url": "https://www.yahoo.com/news/politics/articles/tech-billionaires-convinced-trump-back-204333269.html",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "California wealth tax proposal sparks Silicon Valley exodus warnings | Fox Business",
+      "description": "Peter Thiel, co-founder and chairman of Palantir, is worth approximately $27.5 billion and could owe more than $1.2 billion if the measure becomes law in California. (Kiyoshi Ota/Bloomberg/Getty Images / Getty Images)\n\nIf the measure qualifies for th...",
+      "url": "https://www.foxbusiness.com/politics/tech-billionaires-threaten-flee-california-over-proposed-5-wealth-tax",
+      "source": "مصدر موثوق",
+      "category": "people",
+      "section": "peopleGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "List of 2026 box office number-one films in the United States - Wikipedia",
+      "description": "| # | Weekend end date | Film | Gross | Notes | Ref. |\n ---  ---  --- |\n| 1 | January 4, 2026 | Avatar: Fire and Ash | $41,419,407 | Avatar: Fire and Ash became the first film since Lilo & Stitch \"Lilo & Stitch (2025 film)\") to top the box office for...",
+      "url": "https://en.wikipedia.org/wiki/List_of_2026_box_office_number-one_films_in_the_United_States",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The Most Anticipated Movies of 2026\t\t\t\t\t\t\t | \tRotten Tomatoes",
+      "description": "A sequel to Violent Night is in development, with Stranger Things star David Harbour returning as Mr. Claus. The first film grossed over $70 million at the global box office and is Fresh on Rotten Tomatoes. A lot of the storyline for the sequel is un...",
+      "url": "https://editorial.rottentomatoes.com/article/the-most-anticipated-movies-of-2026",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Home - Box Office Mojo",
+      "description": "## Recent Release Date Changes\n\n|  |  |  |  |  |\n ---  --- \n| The Resurrection of the Christ: Part Two | Wide | May 6, 2027 | → | May 25, 2028 |\n| The Resurrection of the Christ: Part One | Wide | Mar 26, 2027 | → | May 6, 2027 |\n| O Horizon | Wide |...",
+      "url": "https://www.boxofficemojo.com",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Best Movies of 2026 (So Far) | Time Out’s Film Editors’ Picks",
+      "description": "#### Choose a Time Out City\n\n#### Choose a Time Out Market\n\nWorldwide\n\n28 Years Later: The Bone Temple\n\n# The best movies of 2026 (so far)\n\nFrom ‘The Bone Temple’ to ‘Project Hail Mary’, the best of the year to date\n\nPhil de Semlyen\n\nIs it safe to sa...",
+      "url": "https://www.timeout.com/film/the-best-movies-of-2026",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "2026 Worldwide Box Office - Box Office Mojo",
+      "description": "| 39 | The Magic Faraway Tree | $30,980,084  - | $30,980,084 | 100% |\n| 40 | A Werewolf Boy | $30,940,545  - | $30,940,545 | 100% |\n| 41 | The Tale of Tsar Saltan | $29,093,217  - | $29,093,217 | 100% |\n| 42 | It's OK | $28,080,000  - | $28,080,000 |...",
+      "url": "https://www.boxofficemojo.com/year/world",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Box Office",
+      "description": "an image, when javascript is unavailable\n\n# Latest News\n\nSTAR WARS: THE MANDALORIAN AND GROGU, from left: Pedro Pascal, Grogu, 2026. ph: Nicola Goode / © Walt Disney Studios Motion Pictures / Courtesy Everett Collection\n\n### Box Office: ‘Mandalorian ...",
+      "url": "https://variety.com/v/film/box-office",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The Numbers - Weekend Domestic Box Office Chart for May 22, 2026",
+      "description": "| Rank | Prev | Title | Gross | Weekly Change | Theaters | Theater Average | Total Gross | Days in Release |\n ---  ---  ---  --- \n| 1 | (new) | The Mandalorian & Grogu) | $81,960,000 |  | 4,300 | $19,060 | $81,960,000 | 3 |\n| 2 | (3) | Obsession) | $...",
+      "url": "https://www.the-numbers.com/weekend-box-office-chart",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "2026 Release Schedule | FirstShowing.net",
+      "description": "#### December 11 (Friday)\n\nNo New Movies Scheduled Yet\n\n#### December 18 (Friday)\n\nAvengers: Doomsday (+ IMAX)  \nDune: Part Three\n\n#### December 23 (Wednesday)\n\nThe Angry Birds Movie 3  \nThe Adventures of Cliff Booth (Netflix)\n\n#### December 25 (Frid...",
+      "url": "https://www.firstshowing.net/schedule2026",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Best Movies Streaming in May 2026: Wuthering Heights, Send Help",
+      "description": "Emerald Fennell’s “Wuthering Heights,” which brought Margot Robbie and Jacob Elordi’s smoldering chemistry to the big screen, arrives on HBO Max after dividing audiences with its eroticism. Sam Raimi’s “Send Help” hits Hulu after a sturdy winter box ...",
+      "url": "https://variety.com/lists/best-movies-streaming-may-2026",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Hollywood wants to make 2026 a year audiences can't resist",
+      "description": "Tom Cruise returns following the collapse of his costly “Mission: Impossible” franchise to try something new: A black comedy, the English language “Digger” from Mexico’s Oscar-winning Alejandro G. Iñárritu (“The Revenant).\n\nBrad Pitt returns to one o...",
+      "url": "https://www.bostonherald.com/2026/01/04/hollywood-wants-to-make-2026-a-year-audiences-cant-resist",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "May 2026 Movies",
+      "description": "## Movies Released Wednesday, May 20, 2026\n\nJack Ryan: Ghost War Movie Poster\n\n### Jack Ryan: Ghost War R\n\n## Movies Released Friday, May 22, 2026\n\nPassenger Movie Poster\n\n### Passenger R\n\nThe Mandalorian and Grogu Movie Poster\n\n### The Mandalorian a...",
+      "url": "https://www.movieinsider.com/movies/may/2026",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "YouTube",
+      "description": "Thinking there's nothing to watch in theaters right now? Think again I broke down 12 movies in theaters May 2026 that are actually worth...",
+      "url": "https://www.youtube.com/watch?v=IC2hIBpgKd8",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Movie News | Hollywood Reporter",
+      "description": "Sandra Wollner's Austrian drama takes the top prize at the Cannes sidebar, Nepalese transgender feature wins the jury prize.\n\nEverytime\n\n### CAA Sets Lineup for 11th Moebius Film Showcase\n\nThe 2026 student filmmaker event will take place May 27-28 an...",
+      "url": "https://www.hollywoodreporter.com/c/movies/movie-news",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Deadline – Hollywood Entertainment Breaking News",
+      "description": "### Marketplace\n\n## Latest by Category\n\n### Breaking Baz @ Cannes: Sebastian Stan On ‘Fjord’ & ‘The Batman II’; Tilda Swinton Responds To Claims Of A Down Year For Croisette Movies & Looks To The Future Of Cinema\n\n### Crunchyroll Anime Awards 2026 Wi...",
+      "url": "https://deadline.com",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The Numbers - Daily Domestic Box Office Chart for Sunday, May 24, 2026",
+      "description": "| 1 | The Mandalorian & Grogu) | $23,460,000 | 4,300 | $81,960,000 || 2 | Obsession) | $7,730,000 | 2,655 | $52,784,000 || 3 | Michael) | $7,085,000 | 3,306 | $314,220,000 || 4 | The Devil Wears Prada 2) | $4,493,000 | 3,300 | $196,118,726 || 5 | The...",
+      "url": "https://www.the-numbers.com/daily-box-office-chart",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Upcoming releases",
+      "description": "Renate Reinsve in Backrooms (2026). Backrooms (2026). Horror; Sci-Fi. Chiwetel Ejiofor; Renate Reinsve · Brendan Fraser and Andrew Scott in Pressure (2026)....",
+      "url": "https://www.imdb.com/calendar",
+      "source": "مصدر موثوق",
+      "category": "movies",
+      "section": "moviesGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The 39 Best Free AI Tools in 2026: A Complete Guide - DataCamp",
+      "description": "While basic searching is unlimited, advanced features like the Consensus Meter and Study Snapshots are limited to approximately 20–25 uses per month on the fre e plan. [...] Adobe Podcast Enhance Audio Repair Cleaning Bad Audio 1 hour/day Removes bac...",
+      "url": "https://www.datacamp.com/blog/free-ai-tools",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "10+ Free AI tools for 2026 | Google Cloud",
+      "description": "close\n\n   Featured Products\n   AI and Machine Learning\n   Business Intelligence\n   Compute\n   Containers\n   Data Analytics\n   Databases\n   Developer Tools\n   Distributed Cloud\n   Hybrid and Multicloud\n   Industry Specific\n   Integration Services\n   M...",
+      "url": "https://cloud.google.com/use-cases/free-ai-tools",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "15 best AI apps I can't live without in 2026 (free + paid) - Gumloop",
+      "description": "## What is the best free AI?\n\nIf you are looking for the best free AI, it really depends on what you need it for. But if I had to pick one, I would say Claude. The free plan gives you access to web search, memory, file creation, MCP connectors, and e...",
+      "url": "https://www.gumloop.com/blog/best-ai-apps",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "6 Essential AI Tools for 2026 (don't fall behind) - YouTube",
+      "description": "The 6 best AI tools you need in 2026, from voice cloning and AI coding to workflow automation and open-source AI models. In this video I break down ElevenLabs for AI voice cloning and sound design, Claude Code for AI app development and terminal-base...",
+      "url": "https://www.youtube.com/watch?v=SRJi_CLnj4Q",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Google I/O 2026: Every new AI tool you can try for free | Mashable",
+      "description": "If you want to try it, it's as simple as just opening the Gemini app or using Google AI Mode. Google says Gemini 3.5 Flash is faster than other models and can better handle complex agentic tasks, all while using tokens more efficiently. And yes, it c...",
+      "url": "https://mashable.com/tech/google-io-2026-new-products-you-can-try-free",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "Top 10 Best AI Tools for 2026 (Q2 Update) - DataNorth AI",
+      "description": "Is Gemini 3.1 Pro better than GPT-5.4 or Claude Opus 4.7?\nIt depends on the task. Gemini 3.1 Pro leads on some reasoning benchmarks like GPQA Diamond, GPT-5.4 leads on GDPval and computer use, Claude Opus 4.7 leads on CursorBench and long-horizon cod...",
+      "url": "https://datanorth.ai/blog/top-10-ai-tools-for-2026",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "The 12 Best AI Tools for 2026 (That People Actually Use) - Synthesia",
+      "description": "12.   Fathom – to record meetings and create summaries and action items. [...] Image 20\n\nWritten by\n\nEma Lukan\n\nFebruary 13, 2026\n\nCreate AI videos with 240+ avatars in 160+ languages.\n\nGet started for FREE\n\nIn this article\n\nThe 12 best AI tools in 2...",
+      "url": "https://www.synthesia.io/post/ai-tools",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    },
+    {
+      "title": "7 Popular AI Tools for students in 2026 | Vertech Academy",
+      "description": "## The 7 free AI tools worth using in 2026\n\nHere are seven tools that earn their place in a student's stack. For each one I'll tell you what it's best for, where it falls apart, and whether the paid upgrade is worth it.\n\n### 1. Google Gemini — the be...",
+      "url": "https://www.vertechacademy.com/blog/best-free-ai-tools-for-students-2026",
+      "source": "مصدر موثوق",
+      "category": "ai-news",
+      "section": "aiNewsGrid",
+      "published": "2026-05-24T18:36:39.419Z"
+    }
+  ],
+  "stats": {
+    "total": 98,
+    "aiNews": 24,
+    "companies": 26,
+    "people": 32,
+    "movies": 16
+  }
+}

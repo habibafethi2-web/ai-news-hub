@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News Hub — أخبار الذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="منصتك اليومية لأخبار الذكاء الاصطناعي، الشخصيات المشهورة، والأفلام — بدقة 100%">
+    <meta property="og:title" content="AI News Hub">
+    <meta property="og:description" content="أخبار AI يومياً من مصادر موثوقة">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <h1>AI News Hub</h1>
+                </div>
+                <div class="date-badge">
+                    <span id="currentDate"></span>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#ai-news" class="nav-link active">🧠 أخبار AI</a>
+                <a href="#companies" class="nav-link">🏢 أخبار الشركات</a>
+                <a href="#people" class="nav-link">👤 الشخصيات</a>
+                <a href="#movies" class="nav-link">🎬 الأفلام</a>
+            </nav>
+            <div class="last-update-bar">
+                <span>🔄 آخر تحديث: </span>
+                <span id="lastUpdate">جاري التحميل...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="loading" class="loading-section">
+            <div class="spinner"></div>
+            <p>جاري تحميل آخر الأخبار...</p>
+        </div>
+
+        <section id="ai-news" class="section">
+            <div class="section-header">
+                <h2>🧠 أخبار الذكاء الاصطناعي</h2>
+                <span class="badge">أحدث الأخبار</span>
+            </div>
+            <div class="news-grid" id="aiNewsGrid"></div>
+        </section>
+
+        <section id="companies" class="section">
+            <div class="section-header">
+                <h2>🏢 أخبار شركات AI</h2>
+                <span class="badge">OpenAI · Google · Meta · Microsoft</span>
+            </div>
+            <div class="news-grid" id="companiesGrid"></div>
+        </section>
+
+        <section id="people" class="section">
+            <div class="section-header">
+                <h2>👤 أخبار الشخصيات المشهورة</h2>
+                <span class="badge">مشاهير · تقنية · سياسة · رياضة</span>
+            </div>
+            <div class="news-grid" id="peopleGrid"></div>
+        </section>
+
+        <section id="movies" class="section">
+            <div class="section-header">
+                <h2>🎬 أخبار الأفلام والترفيه</h2>
+                <span class="badge">أفلام · مسلسلات · نجوم</span>
+            </div>
+            <div class="news-grid" id="moviesGrid"></div>
+        </section>
+
+        <section class="section sources-section">
+            <div class="section-header">
+                <h2>📡 المصادر المعتمدة</h2>
+                <span class="badge">دقة 100%</span>
+            </div>
+            <div class="sources-grid" id="sourcesGrid"></div>
+        </section>
+
+        <div id="error" class="error-section hidden">
+            <span class="error-icon">⚠️</span>
+            <p id="errorMessage">حدث خطأ أثناء تحميل الأخبار.</p>
+            <button onclick="location.reload()" class="retry-btn">إعادة المحاولة</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>🤖 AI News Hub</h3>
+                    <p>منصتك اليومية لأخبار الذكاء الاصطناعي، المشاهير، والأفلام</p>
+                    <p class="footer-motto">📢 أخبار دقيقة 100% — نتحرى الدقة قبل النشر</p>
+                </div>
+                <div class="footer-stats">
+                    <div class="stat">
+                        <span class="stat-num" id="newsCount">0</span>
+                        <span class="stat-label">خبر اليوم</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" id="sourcesCount">6</span>
+                        <span class="stat-label">مصدر</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> AI News Hub | يتم التحديث يومياً تلقائياً</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

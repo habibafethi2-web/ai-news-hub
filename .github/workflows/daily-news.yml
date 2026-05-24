@@ -1,0 +1,37 @@
+name: 📰 تحديث الأخبار اليومي
+
+on:
+  schedule:
+    # Runs every day at 06:00 UTC (07:00 تونس) and 12:00 UTC (13:00 تونس)
+    - cron: '0 6,12 * * *'
+  workflow_dispatch:  # Manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚡ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 🔍 Fetch latest news from Tavily
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: node scripts/fetch-news.js
+
+      - name: 📝 Commit and push updates
+        run: |
+          git config --local user.email "ai-news-bot@users.noreply.github.com"
+          git config --local user.name "AI News Bot"
+          git add data/news.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "📰 تحديث الأخبار اليومي - $(date +'%Y-%m-%d')"
+          git push
