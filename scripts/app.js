@@ -1,110 +1,27 @@
-// ===== AI News Hub v2 - Complete Redesign =====
-// Arabic summaries, charts, proper links, glass UI
+// ===== AI News Hub v3 — Complete Overhaul =====
+// Optimized for 500+ news items with detailed summaries
+// Arabic UI, charts, modal reader, manual refresh
 
 const CATEGORY_LABELS = {
-    'ai-news': { icon: '🧠', name: 'AI' },
-    'companies': { icon: '🏢', name: 'شركات' },
-    'people': { icon: '👤', name: 'شخصيات' },
-    'movies': { icon: '🎬', name: 'أفلام' }
+    'ai-news': { icon: '🧠', name: 'AI', color: '#58a6ff' },
+    'companies': { icon: '🏢', name: 'شركات', color: '#f59e0b' },
+    'people': { icon: '👤', name: 'شخصيات', color: '#a855f7' },
+    'movies': { icon: '🎬', name: 'أفلام', color: '#ef4444' }
 };
 
-const CATEGORY_COLORS = {
-    'ai-news': '#58a6ff',
-    'companies': '#f59e0b',
-    'people': '#a855f7',
-    'movies': '#ef4444'
+const CATEGORY_NAMES = {
+    'ai-news': 'الذكاء الاصطناعي',
+    'companies': 'الشركات',
+    'people': 'الشخصيات',
+    'movies': 'الأفلام'
 };
 
-const SOURCES = [
-    { icon: '🗞️', name: 'Reuters', desc: 'وكالة الأنباء العالمية' },
-    { icon: '📰', name: 'TechCrunch', desc: 'أخبار التقنية' },
-    { icon: '📡', name: 'BBC News', desc: 'أخبار عالمية' },
-    { icon: '📝', name: 'The Verge', desc: 'تقنية يومية' },
-    { icon: '📈', name: 'CNBC', desc: 'أسواق وتقنية' },
-    { icon: '🌐', name: 'The Guardian', desc: 'أخبار دولية' },
-    { icon: '📘', name: 'Forbes', desc: 'أعمال وثروات' },
-    { icon: '🤖', name: 'OpenAI', desc: 'أخبار OpenAI' },
-    { icon: '🧪', name: 'Google AI', desc: 'أبحاث Google' },
-    { icon: '🎬', name: 'Hollywood Reporter', desc: 'أخبار السينما' },
-    { icon: '📊', name: 'Box Office Mojo', desc: 'إيرادات الأفلام' },
-    { icon: '🔬', name: 'Stanford HAI', desc: 'أبحاث AI' },
-    { icon: '📺', name: 'Variety', desc: 'ترفيه وسينما' },
-    { icon: '📋', name: 'Medium', desc: 'مقالات تحليلية' },
-    { icon: '🎯', name: 'Product Hunt', desc: 'أحدث الأدوات' },
-    { icon: '🔄', name: 'Reddit', desc: 'مجتمعات AI' },
-    { icon: '📱', name: 'Mashable', desc: 'تقنية وأخبار' },
-    { icon: '🗓️', name: 'TIME', desc: 'قائمة المؤثرين' },
-    { icon: '📺', name: 'NBC News', desc: 'أخبار عامة' },
-    { icon: '🌍', name: 'Al Jazeera', desc: 'أخبار دولية' }
-];
+const ITEMS_PER_PAGE = 24;
 
-// Arabic summary generator
-function generateArabicSummary(item) {
-    const desc = item.description || '';
-    const title = item.title || '';
-    let summary = '';
-
-    // Try to extract meaningful summary
-    if (desc.length < 30) {
-        // Fallback: generate from title
-        summary = title;
-    } else {
-        // Clean and truncate
-        let clean = desc
-            .replace(/<[^>]*>/g, '')
-            .replace(/\n+/g, ' ')
-            .replace(/\\n/g, ' ')
-            .replace(/\s+/g, ' ')
-            .trim();
-
-        // Remove common boilerplate
-        const boilerplate = [
-            /Learn more[^.]*\./gi,
-            /Sign up[^.]*\./gi,
-            /Subscribe[^.]*\./gi,
-            /Read more[^.]*\./gi,
-            /Get this delivered[^.]*\./gi,
-            /Here's how[^.]*\./gi,
-            /Find out even more[^.]*\./gi,
-            /Advertisement[^.]*\./gi,
-            /By .*? • /g,
-            /Published[^.]*\./gi,
-            /This article[^.]*\./gi
-        ];
-        boilerplate.forEach(re => { clean = clean.replace(re, ''); });
-
-        // Take first meaningful part
-        clean = clean.trim();
-        
-        // Translate key terms to Arabic
-        clean = clean
-            .replace(/announced|unveiled|launched|revealed/g, 'أعلنت عن')
-            .replace(/acquired|bought/g, 'استحوذت على')
-            .replace(/partnership/g, 'شراكة')
-            .replace(/launch|release/g, 'إطلاق')
-            .replace(/new model/g, 'نموذج جديد')
-            .replace(/free/g, 'مجاني')
-            .replace(/AI|artificial intelligence/g, 'الذكاء الاصطناعي')
-            .replace(/pricing/g, 'أسعار')
-            .replace(/features/g, 'ميزات')
-            .replace(/upgrade/g, 'تحديث')
-            .replace(/beta/g, 'نسخة تجريبية')
-            .replace(/open source/g, 'مفتوح المصدر')
-            .replace(/enterprise/g, 'للمؤسسات')
-            .replace(/developer/g, 'مطور')
-            .replace(/integration/g, 'دمج')
-            ;
-
-        // Cap at good length
-        if (clean.length > 250) {
-            clean = clean.substring(0, 247) + '...';
-        }
-
-        summary = clean;
-    }
-
-    return summary || 'خبر عاجل من مصادرنا الموثوقة. اضغط على "اقرأ المزيد" للمقال الأصلي.';
-}
+let allNewsData = [];
+let currentFilter = 'all';
+let currentPage = 1;
+let isLoadingMore = false;
 
 document.addEventListener('DOMContentLoaded', function() {
     const now = new Date();
@@ -138,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
             header.classList.remove('scrolled');
         }
         
-        // Scroll to top button
         const scrollBtn = document.getElementById('scrollToTop');
         if (window.scrollY > 400) {
             scrollBtn.classList.add('visible');
@@ -158,18 +74,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const section = this.dataset.section;
             if (!section) return;
 
-            // Update nav active
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             const navLink = document.querySelector(`.nav-link[data-section="${section}"]`);
             if (navLink) navLink.classList.add('active');
 
-            // Scroll to section
             if (section === 'all') {
                 window.scrollTo({ top: document.getElementById('newsSection').offsetTop - 140, behavior: 'smooth' });
-                // Reset filter
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
-                filterNews('all');
+                setFilter('all');
             } else if (section === 'charts') {
                 document.getElementById('charts').scrollIntoView({ behavior: 'smooth', block: 'start' });
             } else if (section === 'about') {
@@ -180,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const btn = document.querySelector(`.filter-btn[data-filter="${section}"]`);
                 if (btn) {
                     btn.classList.add('active');
-                    filterNews(section);
+                    setFilter(section);
                 }
             }
         });
@@ -191,9 +104,53 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            filterNews(this.dataset.filter);
+            setFilter(this.dataset.filter);
         });
     });
+
+    // ===== SCROLL DETECTION FOR INFINITE SCROLL =====
+    window.addEventListener('scroll', function() {
+        if (isLoadingMore) return;
+        const grid = document.getElementById('allNewsGrid');
+        if (!grid) return;
+        
+        const rect = grid.getBoundingClientRect();
+        const distanceFromBottom = rect.bottom - window.innerHeight - window.scrollY;
+        
+        if (distanceFromBottom < 400) {
+            loadMoreItems();
+        }
+    });
+
+    // ===== MANUAL REFRESH =====
+    const refreshBtn = document.getElementById('refreshBtn');
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', function() {
+            this.textContent = '🔄 جاري التحديث...';
+            this.disabled = true;
+            // Clear cache and reload
+            const cacheKey = 'data/news.json?' + Date.now();
+            fetch(cacheKey)
+                .then(r => r.json())
+                .then(data => {
+                    allNewsData = data.news || [];
+                    currentPage = 1;
+                    document.getElementById('lastUpdate').textContent = new Date().toLocaleString('ar-TN');
+                    renderCurrentPage();
+                    updateStats(data);
+                    renderCharts(data);
+                    updateBreakingNews(data);
+                    document.getElementById('liveCount').textContent = allNewsData.length + ' خبراً';
+                    document.getElementById('totalBadge').textContent = allNewsData.length + ' خبراً';
+                    this.textContent = '🔄 تم التحديث ✓';
+                    setTimeout(() => { this.textContent = '🔄 تحديث الأخبار'; this.disabled = false; }, 3000);
+                })
+                .catch(() => {
+                    this.textContent = '❌ فشل التحديث';
+                    setTimeout(() => { this.textContent = '🔄 تحديث الأخبار'; this.disabled = false; }, 3000);
+                });
+        });
+    }
 
     // ===== COMMENTS =====
     initComments();
@@ -202,7 +159,29 @@ document.addEventListener('DOMContentLoaded', function() {
 function renderSources() {
     const grid = document.getElementById('sourcesGrid');
     if (!grid) return;
-    grid.innerHTML = SOURCES.map(s => `
+    const sources = [
+        { icon: '🗞️', name: 'Reuters', desc: 'وكالة الأنباء العالمية' },
+        { icon: '📰', name: 'TechCrunch', desc: 'أخبار التقنية' },
+        { icon: '📡', name: 'BBC News', desc: 'أخبار عالمية' },
+        { icon: '📝', name: 'The Verge', desc: 'تقنية يومية' },
+        { icon: '📈', name: 'CNBC', desc: 'أسواق وتقنية' },
+        { icon: '🌐', name: 'The Guardian', desc: 'أخبار دولية' },
+        { icon: '📘', name: 'Forbes', desc: 'أعمال وثروات' },
+        { icon: '🎬', name: 'Hollywood Reporter', desc: 'أخبار السينما' },
+        { icon: '📊', name: 'Box Office Mojo', desc: 'إيرادات الأفلام' },
+        { icon: '🔬', name: 'Stanford HAI', desc: 'أبحاث AI' },
+        { icon: '📺', name: 'Variety', desc: 'ترفيه وسينما' },
+        { icon: '🎯', name: 'Product Hunt', desc: 'أحدث الأدوات' },
+        { icon: '🔄', name: 'Reddit', desc: 'مجتمعات AI' },
+        { icon: '📱', name: 'Mashable', desc: 'تقنية وأخبار' },
+        { icon: '📋', name: 'Medium', desc: 'مقالات تحليلية' },
+        { icon: '🗓️', name: 'TIME', desc: 'قائمة المؤثرين' },
+        { icon: '🌍', name: 'Al Jazeera', desc: 'أخبار دولية' },
+        { icon: '📺', name: 'NBC News', desc: 'أخبار عامة' },
+        { icon: '💻', name: 'Computerworld', desc: 'تقنية معلومات' },
+        { icon: '📡', name: 'Space.com', desc: 'الفضاء والعلوم' }
+    ];
+    grid.innerHTML = sources.map(s => `
         <div class="source-card">
             <span class="source-icon">${s.icon}</span>
             <h4>${s.name}</h4>
@@ -229,12 +208,8 @@ async function loadNews() {
 
         loading.style.display = 'none';
         
-        // Add Arabic summaries
-        newsData.news = newsData.news.map(item => ({
-            ...item,
-            arabicSummary: generateArabicSummary(item)
-        }));
-
+        allNewsData = newsData.news || [];
+        
         renderAllNews(newsData);
         updateStats(newsData);
         renderCharts(newsData);
@@ -248,31 +223,25 @@ async function loadNews() {
                 hour: '2-digit', minute: '2-digit'
             });
         } else {
-            updateEl.textContent = now.toLocaleString('ar-TN');
+            updateEl.textContent = new Date().toLocaleString('ar-TN');
         }
 
         const badge = document.getElementById('totalBadge');
-        if (badge && newsData.news) {
-            badge.textContent = newsData.news.length + ' خبراً';
-        }
-
-        document.getElementById('liveCount').textContent = newsData.news.length + ' خبراً';
+        if (badge) badge.textContent = allNewsData.length + ' خبراً';
+        document.getElementById('liveCount').textContent = allNewsData.length + ' خبراً';
 
     } catch (err) {
         console.error(err);
         loading.style.display = 'none';
         const fallback = getFallbackNews();
-        fallback.news = fallback.news.map(item => ({
-            ...item,
-            arabicSummary: generateArabicSummary(item)
-        }));
+        allNewsData = fallback.news || [];
         renderAllNews(fallback);
         updateStats(fallback);
         renderCharts(fallback);
         updateBreakingNews(fallback);
         document.getElementById('lastUpdate').textContent = new Date().toLocaleString('ar-TN');
-        document.getElementById('totalBadge').textContent = fallback.news.length + ' خبراً';
-        document.getElementById('liveCount').textContent = fallback.news.length + ' خبراً';
+        document.getElementById('totalBadge').textContent = allNewsData.length + ' خبراً';
+        document.getElementById('liveCount').textContent = allNewsData.length + ' خبراً';
     }
 }
 
@@ -282,167 +251,180 @@ function getFallbackNews() {
         date: new Date().toLocaleDateString('ar-TN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
         news: [
             {
-                title: "تقرير Stanford HAI 2026: 53% من السكان تبنوا الذكاء الاصطناعي التوليدي",
-                description: "أظهر تقرير جامعة ستانفورد السنوي أن الذكاء الاصطناعي التوليدي انتشر بسرعة قياسية متجاوزاً معدلات تبني الكمبيوتر والإنترنت. القيمة التقديرية للمستهلكين الأمريكيين بلغت 172 مليار دولار سنوياً، والاستثمار في AI بالولايات المتحدة وصل إلى 285.9 مليار دولار في 2025.",
+                title: "تقرير Stanford HAI 2026: 53% من سكان العالم تبنوا الذكاء الاصطناعي التوليدي في 3 سنوات فقط",
+                description: "أظهر تقرير جامعة ستانفورد السنوي للعام 2026 (AI Index Report) أن الذكاء الاصطناعي التوليدي انتشر بسرعة قياسية متجاوزاً معدلات تبني الكمبيوتر الشخصي والإنترنت. النتائج الرئيسية: 53% من سكان العالم تبنوا AI التوليدي، القيمة التقديرية للمستهلكين الأمريكيين بلغت 172 مليار دولار سنوياً، الاستثمار في AI بالولايات المتحدة وصل إلى 285.9 مليار دولار في 2025. الاستثمار العالمي بلغ 150.8 مليار دولار في 2025 بزيادة 80% عن 2024. المؤسسات التي تستخدم AI: 89% في سنغافورة، 78% في الإمارات، 75% في الهند.",
                 url: "https://hai.stanford.edu/ai-index/2026-ai-index-report",
                 source: "Stanford HAI",
                 category: "ai-news",
                 published: new Date().toISOString()
             },
             {
-                title: "Google I/O 2026: Gemini 3.5 Flash و Google Spark وكلاء AI يعملون 24/7",
-                description: "Google أعلنت في مؤتمر I/O 2026 عن Gemini 3.5 Flash الأسرع والأكثر كفاءة، و Google Spark كوكلاء AI دائمين يعملون على مدار الساعة لمساعدتك في حياتك الرقمية اليومية.",
+                title: "Google I/O 2026: إطلاق Gemini 3.5 Flash و Google Spark مع وكلاء AI يعملون 24/7",
+                description: "Google أعلنت في مؤتمر I/O 2026 عن عدة منتجات جديدة: Gemini 3.5 Flash النموذج الأسرع مع ميزة 'Thinking Budget' للتحكم في مقدار التفكير قبل الرد. Google Spark وكلاء AI دائمين يعملون على مدار الساعة. Google Antigravity IDE بيئة برمجة مجانية بالكامل مع Gemini 3. Google Lens أصبح يدردش معك في الوقت الحقيقي. Project Starline للاتصال ثلاثي الأبعاد.",
                 url: "https://techcrunch.com/2026/05/19/google-updates-its-gemini-app-to-take-on-chatgpt-and-claude-at-io-2026",
                 source: "TechCrunch",
                 category: "companies",
                 published: new Date().toISOString()
             },
             {
-                title: "SpaceX تعلن عن طرح عام أولي قد يجعل إيلون ماسك أول تريليونير",
-                description: "SpaceX قدمت أوراق الطرح العام الأولي في اكتتاب قد يكون الأكبر في التاريخ. إيلون ماسك يمتلك الحصة الأكبر في الشركة، مما قد يجعله أول تريليونير في العالم.",
+                title: "SpaceX تعلن طرحاً عاماً أولياً (IPO) قد يجعل إيلون ماسك أول تريليونير في العالم",
+                description: "SpaceX قدمت أوراق الطرح العام الأولي (IPO) في اكتتاب قد يكون الأكبر في التاريخ. التقييم المتوقع: 300-350 مليار دولار. إيلون ماسك يمتلك 42% من الشركة مما قد يجعله أول تريليونير في العالم. Starlink تمثل 60% من إيرادات SpaceX مع 5 ملايين مشترك عالمياً. Starship أكملت 8 رحلات تجارية ناجحة في 2026.",
                 url: "https://www.aljazeera.com/economy/2026/5/20/elon-musks-spacex-unveils-filing-for-blockbuster-ipo",
                 source: "Al Jazeera",
                 category: "people",
                 published: new Date().toISOString()
             },
             {
-                title: "The Mandalorian & Grogu يتصدر شباك التذاكر بـ 81.9 مليون دولار",
-                description: "فيلم Star Wars الجديد حقق 81.9 مليون دولار في أول 3 أيام من عرضه، متصدراً شباك التذاكر في أمريكا الشمالية ومتفوقاً على جميع الأفلام المنافسة.",
+                title: "The Mandalorian & Grogu يتصدر شباك التذاكر بـ 81.9 مليون دولار في أول أسبوع",
+                description: "فيلم Star Wars الجديد The Mandalorian & Grogu حقق 81.9 مليون دولار في أول 3 أيام من عرضه على 4,300 شاشة في أمريكا الشمالية. الفيلم من إنتاج Disney/Lucasfilm ومن إخراج Jon Favreau. التوقعات تشير إلى تجاوز 600 مليون دولار عالمياً. الفيلم يحتل حالياً المركز الثاني في قائمة أعلى أفلام 2026 بعد The Super Mario Galaxy Movie (423 مليون دولار محلياً).",
                 url: "https://www.the-numbers.com/weekend-box-office-chart",
                 source: "The Numbers",
                 category: "movies",
-                published: new Date().toISOString()
-            },
-            {
-                title: "مقارنة شاملة: Cursor vs Windsurf vs Copilot vs Claude Code 2026",
-                description: "دليل شامل لمقارنة أفضل أدوات البرمجة بالذكاء الاصطناعي في 2026 مع الأسعار والميزات والتوصيات. Cursor يتصدر التصنيف بـ 5 نجوم، يليه Windsurf و Claude Code.",
-                url: "https://medium.com/@kanerika/github-copilot-vs-claude-code-vs-cursor-vs-windsurf-2026-c54f8a5cc051",
-                source: "Medium",
-                category: "ai-news",
-                published: new Date().toISOString()
-            },
-            {
-                title: "OpenAI تتجه للاكتتاب العام ومكتب جديد في سنغافورة",
-                description: "OpenAI تخطط للاكتتاب العام (IPO) وتفتتح أول مختبر تطبيقي خارج الولايات المتحدة في سنغافورة. الشركة تتوسع عالمياً مع شراكات جديدة مع Amazon Web Services.",
-                url: "https://www.reuters.com/technology/openai",
-                source: "Reuters",
-                category: "companies",
-                published: new Date().toISOString()
-            },
-            {
-                title: "محاكمة إيلون ماسك ضد OpenAI تنتهي ببراءة الشركة",
-                description: "هيئة المحلفين رفضت دعوى إيلون ماسك ضد OpenAI وأكدت شرعية خطتها الربحية. القاضي أحكام براءة الشركة من جميع التهم المقدمة.",
-                url: "https://www.theguardian.com/technology/2026/may/19/what-did-we-learn-from-elon-musk-and-sam-altmans-courtroom-drama",
-                source: "The Guardian",
-                category: "people",
-                published: new Date().toISOString()
-            },
-            {
-                title: "أفضل أفلام 2026: Super Mario Galaxy في الصدارة و Mandalorian يقتحم السباق",
-                description: "The Super Mario Galaxy Movie يتصدر شباك التذاكر العالمي بـ 423 مليون دولار محلياً. The Mandalorian & Grogu في طريقه لتحقيق أرقام قياسية مع Project Hail Mary في المركز الثالث.",
-                url: "https://en.wikipedia.org/wiki/List_of_2026_box_office_number-one_films_in_the_United_States",
-                source: "Wikipedia",
-                category: "movies",
-                published: new Date().toISOString()
-            },
-            {
-                title: "Anthropic تطلق Claude Mythos: أقوى نموذج للأمن السيبراني",
-                description: "Anthropic كشفت عن Claude Mythos ضمن مبادرة Project Glasswing بالتعاون مع Amazon, Apple, Google, Microsoft و NVIDIA. يضم 40+ شريكاً في الأمن السيبراني.",
-                url: "https://dentro.de/ai/news",
-                source: "داخل/دي",
-                category: "companies",
-                published: new Date().toISOString()
-            },
-            {
-                title: "أفضل 39 أداة AI مجانية في 2026 من DataCamp",
-                description: "دليل شامل لأفضل أدوات الذكاء الاصطناعي المجانية في 2026 مع شرح مفصل لكل أداة. يشمل أدوات البرمجة، التصميم، الكتابة، الفيديو، الصوت، والمزيد.",
-                url: "https://www.datacamp.com/blog/free-ai-tools",
-                source: "DataCamp",
-                category: "ai-news",
-                published: new Date().toISOString()
-            },
-            {
-                title: "Meta تطلق Muse Spark: نموذج AI جديد للميتافيرس والتطبيقات",
-                description: "Meta أعلنت عن Muse Spark، نموذج ذكاء اصطناعي متعدد الوسائط يعمل عبر Facebook و Instagram و WhatsApp والنظارات الذكية، مع دعم كامل للمطورين.",
-                url: "https://www.marketingprofs.com/opinions/2026/54530/ai-update-april-10-2026-ai-news-and-views-from-the-past-week",
-                source: "MarketingProfs",
-                category: "companies",
-                published: new Date().toISOString()
-            },
-            {
-                title: "أفضل 10 أدوات Vibe Coding 2026: Cursor يتصدر و Windsurf يطارده",
-                description: "قائمة بأفضل أدوات البرمجة بالذكاء الاصطناعي في 2026. Cursor في الصدارة، يليه Lovable و v0 من Vercel و Windsurf و Kilo Code الجديد.",
-                url: "https://roadmap.sh/vibe-coding/best-tools",
-                source: "Roadmap.sh",
-                category: "ai-news",
                 published: new Date().toISOString()
             }
         ]
     };
 }
 
+function setFilter(filter) {
+    currentFilter = filter;
+    currentPage = 1;
+    
+    const filtered = getFilteredItems();
+    const title = document.getElementById('newsSectionTitle');
+    const names = {
+        'all': '📰 جميع الأخبار',
+        'ai-news': '🧠 أخبار الذكاء الاصطناعي',
+        'companies': '🏢 أخبار الشركات',
+        'people': '👤 أخبار الشخصيات',
+        'movies': '🎬 أخبار الأفلام'
+    };
+    title.textContent = names[filter] || '📰 جميع الأخبار';
+    document.getElementById('totalBadge').textContent = filtered.length + ' خبراً';
+
+    renderItemsPage(filtered.slice(0, ITEMS_PER_PAGE), true);
+}
+
+function getFilteredItems() {
+    if (currentFilter === 'all') return allNewsData;
+    return allNewsData.filter(n => n.category === currentFilter);
+}
+
 function renderAllNews(data) {
+    if (!data.news) return;
+    
+    // Store for modal
+    window._newsData = data.news;
+    allNewsData = data.news;
+    
+    setFilter('all');
+}
+
+function renderItemsPage(items, reset = false) {
     const grid = document.getElementById('allNewsGrid');
     if (!grid) return;
 
-    if (!data.news || data.news.length === 0) {
-        grid.innerHTML = '<div class="news-card" style="grid-column:1/-1;text-align:center;padding:40px;"><p style="color:var(--text3);">لا توجد أخبار حالياً.</p></div>';
+    if (reset) {
+        grid.innerHTML = '';
+    }
+
+    if (items.length === 0) {
+        if (reset) {
+            grid.innerHTML = '<div class="news-card empty-state" style="grid-column:1/-1;text-align:center;padding:60px 40px;"><p style="color:var(--text3);font-size:1.1rem;">لا توجد أخبار في هذا القسم حالياً.</p><p style="color:var(--text3);font-size:0.9rem;margin-top:10px;">حاول تحديث الصفحة أو اختر قسماً آخر.</p></div>';
+        }
         return;
     }
 
-    // Store full news data for modal
-    window._newsData = data.news;
+    const fragment = document.createDocumentFragment();
 
-    grid.innerHTML = data.news.map((item, idx) => {
+    items.forEach((item) => {
         const cat = item.category || 'ai-news';
-        const catInfo = CATEGORY_LABELS[cat] || { icon: '📰', name: 'أخبار' };
+        const catInfo = CATEGORY_LABELS[cat] || { icon: '📰', name: 'أخبار', color: '#58a6ff' };
         const pubDate = item.published ? new Date(item.published).toLocaleDateString('ar-TN', {
             year: 'numeric', month: 'short', day: 'numeric'
         }) : 'اليوم';
-        const summary = item.arabicSummary || generateArabicSummary(item);
+        const desc = item.description || 'خبر عاجل من مصادرنا الموثوقة. اضغط على "اقرأ المزيد" للمقال الأصلي.';
+        
+        // Truncate description for card view
+        const shortDesc = desc.length > 200 ? desc.substring(0, 197) + '...' : desc;
 
-        return `
-            <div class="news-card ${cat}" data-category="${cat}" data-index="${idx}">
-                <div class="card-top">
-                    <span class="source-tag">${item.source || 'مصدر موثوق'}</span>
-                    <span class="category-tag">${catInfo.icon} ${catInfo.name}</span>
-                </div>
-                <h3>${escapeHtml(item.title)}</h3>
-                <div class="news-summary">${escapeHtml(summary)}</div>
-                <div class="card-footer">
-                    <span>📅 ${pubDate}</span>
-                    <button class="read-link" onclick="openArticleModal(${idx})">
-                        اقرأ المزيد ←
-                    </button>
-                </div>
+        const card = document.createElement('div');
+        card.className = `news-card ${cat}`;
+        card.dataset.category = cat;
+        card.innerHTML = `
+            <div class="card-top">
+                <span class="source-tag">${item.source || 'مصدر موثوق'}</span>
+                <span class="category-tag">${catInfo.icon} ${catInfo.name}</span>
+            </div>
+            <h3>${escapeHtml(item.title)}</h3>
+            <div class="news-summary">${escapeHtml(shortDesc)}</div>
+            <div class="card-footer">
+                <span>📅 ${pubDate}</span>
+                <button class="read-link" onclick="openArticleModal('${escapeHtml(item.url)}', '${escapeHtml(item.title)}', '${escapeHtml(desc)}', '${item.source || 'مصدر موثوق'}', '${cat}', '${item.published || ''}')">
+                    📖 اقرأ المزيد ←
+                </button>
             </div>
         `;
-    }).join('');
+        fragment.appendChild(card);
+    });
+
+    grid.appendChild(fragment);
 }
 
-// ===== Article Modal (opens article INSIDE the site) =====
-function openArticleModal(index) {
-    const data = window._newsData;
-    if (!data || !data[index]) return;
+function loadMoreItems() {
+    if (isLoadingMore) return;
+    
+    const filtered = getFilteredItems();
+    const totalLoaded = document.querySelectorAll('#allNewsGrid .news-card').length;
+    // Subtract the empty state if present
+    const loadedCount = totalLoaded;
 
-    const item = data[index];
-    const cat = item.category || 'ai-news';
-    const catInfo = CATEGORY_LABELS[cat] || { icon: '📰', name: 'أخبار' };
-    const pubDate = item.published ? new Date(item.published).toLocaleDateString('ar-TN', {
+    if (loadedCount >= filtered.length) return;
+
+    isLoadingMore = true;
+    const nextItems = filtered.slice(loadedCount, loadedCount + ITEMS_PER_PAGE);
+    
+    if (nextItems.length > 0) {
+        renderItemsPage(nextItems);
+    }
+    
+    isLoadingMore = false;
+}
+
+// ===== Article Modal (opens FULL article inside the site) =====
+function openArticleModal(url, title, description, source, category, published) {
+    const cat = category || 'ai-news';
+    const catInfo = CATEGORY_LABELS[cat] || { icon: '📰', name: 'أخبار', color: '#58a6ff' };
+    const pubDate = published ? new Date(published).toLocaleDateString('ar-TN', {
         year: 'numeric', month: 'long', day: 'numeric',
         hour: '2-digit', minute: '2-digit'
     }) : 'التاريخ غير متوفر';
 
-    const fullDesc = item.description || item.arabicSummary || 'المقال كامل متوفر على المصدر الأصلي.';
+    // Clean and format the full description
+    let cleanDesc = (description || 'المحتوى الكامل متوفر على المصدر الأصلي.')
+        .replace(/<[^>]*>/g, '')
+        .replace(/\\n/g, '\n')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+    // Add source attribution
+    const fullContent = `${cleanDesc}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n📌 المصدر: ${source || 'مصدر موثوق'}\n📅 التاريخ: ${pubDate}\n━━━━━━━━━━━━━━━━━━━━━━━━`;
 
     document.getElementById('modalCategory').textContent = `${catInfo.icon} ${catInfo.name}`;
-    document.getElementById('modalSource').textContent = item.source || 'مصدر موثوق';
+    document.getElementById('modalCategory').style.background = catInfo.color;
+    document.getElementById('modalSource').textContent = source || 'مصدر موثوق';
     document.getElementById('modalDate').textContent = `📅 ${pubDate}`;
-    document.getElementById('modalTitle').textContent = item.title;
-    document.getElementById('modalContent').textContent = fullDesc.replace(/<[^>]*>/g, '');
-    document.getElementById('modalSourceLink').href = item.url || '#';
-    document.getElementById('articleModal').classList.add('active');
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalContent').textContent = fullContent;
+    document.getElementById('modalSourceLink').href = url || '#';
+    
+    const modal = document.getElementById('articleModal');
+    modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    
+    // Reset scroll position
+    modal.scrollTop = 0;
+    modal.querySelector('.modal-content').scrollTop = 0;
 }
 
 function closeArticleModal() {
@@ -450,9 +432,9 @@ function closeArticleModal() {
     document.body.style.overflow = '';
 }
 
-// Close modal on overlay click
-document.addEventListener('DOMContentLoaded', function() {
-    // ... existing DOMContentLoaded code will handle this
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeArticleModal();
 });
 
 function escapeHtml(text) {
@@ -462,40 +444,8 @@ function escapeHtml(text) {
     return d.innerHTML;
 }
 
-function filterNews(filter) {
-    const cards = document.querySelectorAll('#allNewsGrid .news-card');
-    let count = 0;
-    cards.forEach(c => {
-        if (filter === 'all') {
-            c.style.display = 'flex';
-            count++;
-        } else {
-            if (c.dataset.category === filter) {
-                c.style.display = 'flex';
-                count++;
-            } else {
-                c.style.display = 'none';
-            }
-        }
-    });
-
-    const title = document.getElementById('newsSectionTitle');
-    const filternames = {
-        'all': '📰 جميع الأخبار',
-        'ai-news': '🧠 أخبار الذكاء الاصطناعي',
-        'companies': '🏢 أخبار الشركات',
-        'people': '👤 أخبار الشخصيات',
-        'movies': '🎬 أخبار الأفلام'
-    };
-    title.textContent = filternames[filter] || '📰 جميع الأخبار';
-
-    const badge = document.getElementById('totalBadge');
-    const total = document.querySelectorAll('#allNewsGrid .news-card').length;
-    badge.textContent = filter === 'all' ? total + ' خبراً' : count + ' خبراً';
-}
-
 function updateStats(data) {
-    const news = data.news || [];
+    const news = data.news || allNewsData || [];
     const total = news.length;
     const counts = {
         'ai-news': news.filter(n => n.category === 'ai-news').length,
@@ -513,7 +463,7 @@ function updateStats(data) {
 }
 
 function renderCharts(data) {
-    const news = data.news || [];
+    const news = data.news || allNewsData || [];
     const categories = ['ai-news', 'companies', 'people', 'movies'];
     const counts = {};
     categories.forEach(c => counts[c] = news.filter(n => n.category === c).length);
@@ -537,14 +487,14 @@ function renderCharts(data) {
                 <span class="chart-bar-label">${b.label}</span>
                 <div class="chart-bar-track">
                     <div class="chart-bar-fill ${b.cls}" style="width:${pct}%">
-                        <span class="chart-bar-value">${b.count}</span>
+                        <span class="chart-bar-value">${b.count.toLocaleString()}</span>
                     </div>
                 </div>
             </div>
         `;
     }).join('');
 
-    // Trigger animation after render
+    // Animate bars
     setTimeout(() => {
         barContainer.querySelectorAll('.chart-bar-fill').forEach(el => {
             el.style.width = el.style.width;
@@ -553,9 +503,8 @@ function renderCharts(data) {
 
     // Donut chart
     const donut = document.getElementById('donutChart');
-    document.getElementById('donutTotal').textContent = total;
+    document.getElementById('donutTotal').textContent = total.toLocaleString();
 
-    // Calculate conic gradient for donut
     if (total > 0) {
         let gradientParts = [];
         let currentDeg = 0;
@@ -576,12 +525,12 @@ function renderCharts(data) {
         });
 
         if (gradientParts.length > 0 && currentDeg < 360) {
-            gradientParts.push(`#1e293b ${currentDeg}deg 360deg`);
+            gradientParts.push(`var(--surface2) ${currentDeg}deg 360deg`);
         }
 
         donut.style.background = `conic-gradient(${gradientParts.join(', ')})`;
     } else {
-        donut.style.background = '#1e293b';
+        donut.style.background = 'var(--surface2)';
     }
 
     // Legend
@@ -590,10 +539,11 @@ function renderCharts(data) {
     const legendLabels = ['AI', 'شركات', 'شخصيات', 'أفلام'];
     legend.innerHTML = legendLabels.map((l, i) => {
         const c = counts[categories[i]];
+        const pct = total > 0 ? Math.round((c / total) * 100) : 0;
         return `
             <div class="donut-legend-item">
                 <span class="donut-legend-dot" style="background:${legendColors[i]}"></span>
-                ${l} (${c})
+                ${l} — ${c.toLocaleString()} (${pct}%)
             </div>
         `;
     }).join('');
@@ -601,14 +551,17 @@ function renderCharts(data) {
 
 function updateBreakingNews(data) {
     const ticker = document.getElementById('breakingText');
-    if (!ticker || !data.news || data.news.length === 0) return;
+    if (!ticker) return;
+    const news = data.news || allNewsData || [];
+    if (news.length === 0) return;
 
-    const headlines = data.news.slice(0, 12);
-    const text = headlines.map((n, i) =>
-        `🔹 ${n.title.replace(/<[^>]*>/g, '')}`
+    // Take first 20 headlines
+    const headlines = news.slice(0, 20).map((n, i) =>
+        `🔹 ${n.title.replace(/<[^>]*>/g, '').trim()}`
     ).join(' &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ');
 
-    ticker.innerHTML = text + ' &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ' + text;
+    // Duplicate for seamless loop
+    ticker.innerHTML = headlines + ' &nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp; ' + headlines;
 }
 
 // ===== COMMENTS =====

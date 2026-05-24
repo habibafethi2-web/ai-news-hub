@@ -1,37 +1,42 @@
-name: 📰 تحديث الأخبار اليومي
+name: AI News Hub - تحديث الأخبار التلقائي
 
 on:
   schedule:
-    # Runs every day at 06:00 UTC (07:00 تونس) and 12:00 UTC (13:00 تونس)
-    - cron: '0 6,12 * * *'
-  workflow_dispatch:  # Manual trigger
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
+    # Every 3 hours for near-real-time updates
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'سبب التحديث اليدوي'
+        required: false
+        default: 'تحديث يدوي'
 
 jobs:
   fetch-news:
+    name: جلب آخر الأخبار العالمية
     runs-on: ubuntu-latest
+    
     steps:
-      - name: ⬇️ Checkout repository
+      - name: 📥 تحميل المستودع
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: ⚡ Setup Node.js
+      - name: 🔧 إعداد Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
-      - name: 🔍 Fetch latest news from Tavily
+      - name: 🤖 جلب الأخبار من 56 مصدراً
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: node scripts/fetch-news.js
 
-      - name: 📝 Commit and push updates
+      - name: 📤 رفع التغييرات للمستودع
         run: |
-          git config --local user.email "ai-news-bot@users.noreply.github.com"
-          git config --local user.name "AI News Bot"
-          git add data/news.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "📰 تحديث الأخبار اليومي - $(date +'%Y-%m-%d')"
-          git push
+          git config user.name "AI News Bot"
+          git config user.email "bot@ai-news-hub.com"
+          git add -A
+          git diff --quiet && git diff --staged --quiet || \
+            (git commit -m "🤖 تحديث الأخبار التلقائي $(date +'%Y-%m-%d %H:%M UTC')" && \
+             git push origin main)

@@ -112,7 +112,7 @@ body {
     font-weight: 600;
     font-size: 0.85rem;
     line-height: 26px;
-    animation: ticker-scroll 180s linear infinite;
+    animation: ticker-scroll 300s linear infinite;
 }
 
 @keyframes ticker-scroll {
@@ -203,6 +203,17 @@ body {
     background: var(--accent);
     color: #fff;
     transform: rotate(30deg);
+}
+
+.refresh-btn:hover {
+    background: var(--green) !important;
+    transform: rotate(180deg);
+}
+
+.refresh-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
 }
 
 /* ===== Nav ===== */
